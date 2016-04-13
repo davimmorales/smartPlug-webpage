@@ -8,10 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="nav_logo navbar-brand" href="index.php">
-        <p id="logotipo">
-          Tomas </p>
-      </a>
+      <a class="nav_logo navbar-brand" href="index.php"><p>Tomas </p></a>
     </div>
 
 
