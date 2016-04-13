@@ -1,0 +1,16 @@
+body{
+  font-family: 'Quicksand', sans-serif;
+  padding-top: 50px;
+}
+.nav_item{
+  font-weight: bold;
+}
+.nav_logo{
+  font-family: 'Shadows Into Light Two', cursive;
+}
+
+.verdem{
+  background-color: #1BBC9B;
+  color: white;
+  font-weight: bold;
+}
