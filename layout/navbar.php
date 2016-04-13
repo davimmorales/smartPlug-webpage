@@ -19,9 +19,9 @@
     <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class = "nav_item"><a href="index.php">Home</a></li>
-        <li class = "nav_item"><a href="Registration.php">Loja</a></li>
-        <li class = "nav_item"><a> Minha Conta</a ></li>
-        <li class = "nav_item"><a href="Registration.php">Suporte</a></li>
+        <li class = "nav_item"><a href="store.php">Loja</a></li>
+        <li class = "nav_item"><a href="account.php"> Minha Conta</a ></li>
+        <li class = "nav_item"><a href="support.php">Suporte</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
