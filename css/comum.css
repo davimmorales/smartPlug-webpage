@@ -9,6 +9,27 @@ body{
   font-family: 'Shadows Into Light Two', cursive;
   font-size: 30px;
 }
+.secaoVermelha{
+  background-color: #9E1E1E;
+  color: #FCFBD7;
+  /*background-attachment: fixed;*/
+}
+.secaoEscura{
+  background-color: #333;
+  color:white;
+}
+.secaoEscura h1{
+  color:#FCFBD7;
+}
+.secaoVermelha h1{
+  color:#E4C886
+}
+.secaoCreme{
+  background-color: #FCFBD7;
+}
+.secaoCreme h1{
+  color: #9E1E1E;
+}
 
 .verdem{
   background-color: #9E1E1E;

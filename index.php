@@ -17,20 +17,41 @@
 
   <!--CSS-->
   <link href="css/comum.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
 
 </head>
 <body>
   <?php  include 'layout/navbar.php'; ?>
-  <div class="container">
-    <h1> I am a header</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+  <div class="jumbotron">
+    <div class="container">
+
+    </div>
   </div>
-<div class="container-fluid verdem">
-<div class="container">
-  <br/><span class="nav_logo">Tomas</span>
-  <p class="nav_item">Home Minha Conta  Loja Suporte</p>
-  </div
-</div>
+
+  <div class="container ">
+    <h1>O poder da tomada reinventado</h1>
+    <p>Tomas foi criado para trazer inteligência para o antigo conceido de tomadas. Descubra o poder de Tomas</p>
+  </div>
+  <div class="container-fluid secaoVermelha">
+    <div class="container">
+      <h1>Por um lorem mais ipsum</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+  <div class="container-fluid secaoCreme">
+    <div class="container">
+      <h1>Por um ipsum mais Lorem</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+  <div class="container-fluid secaoEscura">
+    <div class="container">
+      <h1>Não se esqueça do dolor sit amer</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
 
 
 
