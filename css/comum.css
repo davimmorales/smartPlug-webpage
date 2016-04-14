@@ -11,7 +11,12 @@ body{
 }
 
 .verdem{
-  background-color: #1BBC9B;
-  color: white;
+  background-color: #9E1E1E;
+  color: #E4C886;
+  font-weight: bold;
+}
+.verdem:hover{
+  background-color: #9E1E1E;
+  color: #FCFBD7;
   font-weight: bold;
 }
