@@ -33,7 +33,7 @@
 
         <input type="text" class="form-control" placeholder="e-mail"><br/>
         <input type="text" class="form-control" placeholder="senha"><br/>
-        <div class="btn btn-primary">Acesse sua conta </div>
+        <div class="btn btn-cinza">Acesse sua conta </div>
         <h3> Esqueceu seus dados? Não tem problema!</h3>
         <p> Recupere por <a target="_blank">aqui</a></p>
 
@@ -190,7 +190,7 @@
             </select>
             <br/>
 </div>
-            <div class="btn btn-primary">Crie sua conta </div>
+            <div class="btn btn-cinza">Crie sua conta </div>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
           </div>

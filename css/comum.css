@@ -21,6 +21,17 @@ body{
 .secaoEscura h1{
   color:#FCFBD7;
 }
+
+.btn-cinza{
+  background-color: #333;
+  color:white;
+}
+.btn-cinza:hover{
+  color:#FCFBD7;
+}
+.btn-cinza:visited{
+  color:#E4C886
+}
 .secaoVermelha h1{
   color:#E4C886
 }
