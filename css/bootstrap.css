@@ -5,8 +5,8 @@
  */
 
 /*!
- * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=a0344d115efab676f21f2b5785e99360)
- * Config saved to config.json and https://gist.github.com/a0344d115efab676f21f2b5785e99360
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=8ef1ba08d11382dc40a32c305811986f)
+ * Config saved to config.json and https://gist.github.com/8ef1ba08d11382dc40a32c305811986f
  */
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -4537,14 +4537,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: transparent;
 }
 .navbar-default .navbar-toggle {
-  border-color: #dddddd;
+  border-color: #f7f7f7;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #dddddd;
+  background-color: #f7f7f7;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #888888;
+  background-color: #e4c886;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {

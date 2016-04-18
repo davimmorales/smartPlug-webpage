@@ -31,8 +31,8 @@
 
         <h2>Possuo uma conta</h2>
 
-        <input type="text" class="form-control" placeholder="e-mail"><br/>
-        <input type="text" class="form-control" placeholder="senha"><br/>
+        <input type="e-mail" class="form-control" placeholder="e-mail"><br/>
+        <input type="password" class="form-control" placeholder="senha"><br/>
         <div class="btn btn-cinza">Acesse sua conta </div>
         <h3> Esqueceu seus dados? Não tem problema!</h3>
         <p> Recupere por <a target="_blank">aqui</a></p>
@@ -42,16 +42,17 @@
         <h2>Quero me cadastrar</h2>
 
         <input type="text" class="form-control" placeholder="nome"><br/>
-        <input type="text" class="form-control" placeholder="e-mail"><br/>
-        <input type="text" class="form-control" placeholder="senha"><br/>
-        <input type="text" class="form-control" placeholder="insira novamente sua senha"><br/>
+        <input type="e-mail" class="form-control" placeholder="e-mail"><br/>
+        <input type="password" class="form-control" placeholder="senha"><br/>
+        <input type="password" class="form-control" placeholder="insira novamente sua senha"><br/>
 
-          <input type="radio" name="gender" value="M" id=male />                        Masculino
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="gender" value="F" id=female />                        Feminino
-        </label>
-        <br/><br/>
+        <input type="radio" name="gender" value="M" id=male />                        Masculino
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="gender" value="F" id=female />                        Feminino
+      </label>
+      <br/><br/>
+      <div class="container-fluid">
         <div class="col-xs-4 col-md-4">
           <select name="day" class = "form-control input-lg">
             <option value="1">1</option>
@@ -189,21 +190,22 @@
               </select>
             </select>
             <br/>
-</div>
-            <div class="btn btn-cinza">Crie sua conta </div>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
           </div>
         </div>
+        <div class="btn btn-cinza">Crie sua conta </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
       </div>
+    </div>
+  </div>
 
 
 
 
 
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="js/bootstrap.min.js"></script>
-    </body>
-    </html>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
