@@ -24,7 +24,43 @@
   <?php  include 'layout/navbar.php'; ?>
 
 
-<!-- Code goes here-->
+  <ul class="nav nav-tabs">
+    <li role="presentatio" class="active"><a href="#">Compre</a></li>
+    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-shopping-cart"> </span> Meu carrinho</a></li>
+    <li role="presentation"class="pagina"><a href="#">Meus pedidos</a></li>
+  </ul>
+  <br/><br/><br/><br/>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="img/gambis.jpg" alt="Uma gambiarra" />
+      </div>
+      <div class="col-sm-6">
+        <h2>Como gostaria de receber a sua tomada?</h1><br/>
+        <div class="row">
+          <div class="col-sm-6 text-center"><img class ="opcoes"src="img/baseContorno.svg"/><br/>Com base</div>
+          <div class="col-sm-6 text-center"><img class="opcoes" src="img/tomadaContorno.svg"/><br/>Sem base*</div>
+        </div>
+        <h2>Selecione quantas tomadas você deseja comprar</h1>
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </span>
+          <input type="text" name="quant[1]" class="form-control input-number" value="0" min="0" max="10">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+          </span>
+        </div>
+
+        <br/>
+        <p>* Para que a tomada funcione, é necessário uma base</p>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -33,5 +69,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/controlador.js"></script>
 </body>
 </html>
