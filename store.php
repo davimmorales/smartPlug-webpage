@@ -40,7 +40,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <img src="img/gambis.jpg" alt="Uma gambiarra" />
+        <img class="img-responsive" src="img/gambis.jpg" alt="Uma gambiarra" />
       </div>
       <div class="col-md-6">
         <h2>Como gostaria de receber a sua tomada?</h1><br/>
