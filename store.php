@@ -39,10 +39,10 @@
   <br/><br/><br/><br/>
   <div class="container">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-md-6">
         <img src="img/gambis.jpg" alt="Uma gambiarra" />
       </div>
-      <div class="col-sm-6">
+      <div class="col-md-6">
         <h2>Como gostaria de receber a sua tomada?</h1><br/>
         <div class="row">
           <div class="col-sm-6 text-center"><img class ="opcoes"src="img/baseContorno.svg"/><br/>Com base</div>
