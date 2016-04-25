@@ -5,21 +5,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<<<<<<< HEAD
   <title>Bootstrap 101 Template</title>
+=======
+  <title>Tomas Smart Plug</title>
+>>>>>>> 95fe78e0d8c7893f3759e0d10ee7c58dae4b7608
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 95fe78e0d8c7893f3759e0d10ee7c58dae4b7608
   <!--Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
 
   <!--CSS-->
   <link href="css/comum.css" rel="stylesheet">
+<<<<<<< HEAD
+=======
+  <link href="css/store.css" rel="stylesheet">
+>>>>>>> 95fe78e0d8c7893f3759e0d10ee7c58dae4b7608
 
 </head>
 <body>
   <?php  include 'layout/navbar.php'; ?>
+<<<<<<< HEAD
   <div class="container">
     <h1>Loja</h1>
     <p>Aqui você adquire os nossos produtos</p>
@@ -51,6 +64,11 @@
       </div>
     </div>
   </div>
+=======
+
+
+<!-- Code goes here-->
+>>>>>>> 95fe78e0d8c7893f3759e0d10ee7c58dae4b7608
 
 
 
