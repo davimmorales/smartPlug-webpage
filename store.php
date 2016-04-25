@@ -64,7 +64,7 @@
         </div>
 
         <br/>
-        <p>* Para que a tomada funcione, é necessário uma base</p>
+        <p><i>* Para que a tomada funcione, é necessário pelo menos uma base</i></p>
       </div>
     </div>
   </div>
