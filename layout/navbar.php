@@ -1,3 +1,12 @@
+<?php
+function echoActiveIfRequestMatches($requestUri)
+{
+    $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
+
+    if ($current_file_name == $requestUri)
+        echo "active";
+}
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -15,10 +24,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class = "nav_item"><a href="index.php">Home</a></li>
-        <li class = "nav_item"><a href="store.php">Loja</a></li>
-        <li class = "nav_item"><a href="account.php"> Minha Conta</a ></li>
-        <li class = "nav_item"><a href="support.php">Suporte</a></li>
+        <li class = "nav_item <?php echoActiveIfRequestMatches("index")?>"><a href="index.php">Home</a></li>
+        <li class = "nav_item <?php echoActiveIfRequestMatches("store")?>"><a href="store.php">Loja</a></li>
+        <li class = "nav_item <?php echoActiveIfRequestMatches("account")?>"><a href="account.php"> Minha Conta</a ></li>
+        <li class = "nav_item <?php echoActiveIfRequestMatches("support")?>"><a href="support.php">Suporte</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->

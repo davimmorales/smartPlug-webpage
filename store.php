@@ -25,17 +25,17 @@
 
 </head>
 <body>
-  <?php  include 'layout/navbar.php'; ?>
+
+  <?php
+    include 'layout/navbar.php';
+    include 'layout/storenav.php';
+  ?>
 
 
 
 
 
-  <ul class="nav nav-tabs">
-    <li role="presentatio" class="active"><a href="#">Compre</a></li>
-    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-shopping-cart"> </span> Meu carrinho</a></li>
-    <li role="presentation"class="pagina"><a href="#">Meus pedidos</a></li>
-  </ul>
+
   <br/><br/><br/><br/>
   <div class="container">
     <div class="row">
