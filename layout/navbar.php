@@ -24,10 +24,10 @@ function echoActiveIfRequestMatches($requestUri)
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class = "nav_item <?php echoActiveIfRequestMatches("index")?>"><a href="index.php">Home</a></li>
-        <li class = "nav_item <?php echoActiveIfRequestMatches("store")?>"><a href="store.php">Loja</a></li>
-        <li class = "nav_item <?php echoActiveIfRequestMatches("account")?>"><a href="account.php"> Minha Conta</a ></li>
-        <li class = "nav_item <?php echoActiveIfRequestMatches("support")?>"><a href="support.php">Suporte</a></li>
+        <li class = "nav_item <?php echoActiveIfRequestMatches("index");echoActiveIfRequestMatches("");?>"><a href="index.php">Home</a></li>
+        <li class = "nav_item <?php echoActiveIfRequestMatches("store");echoActiveIfRequestMatches("carrinho");echoActiveIfRequestMatches("pedidos");?>"><a href="store.php">Loja</a></li>
+        <li class = "nav_item <?php echoActiveIfRequestMatches("account");?>"><a href="account.php"> Minha Conta</a ></li>
+        <li class = "nav_item <?php echoActiveIfRequestMatches("support");?>"><a href="support.php">Suporte</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
