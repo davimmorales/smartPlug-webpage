@@ -29,25 +29,37 @@
   <div class="container">
     <div class=" row">
       <form>
-        <fieldset disabled>
           <div class="form-group">
-            <label for="disabledTextInput">Nome</label>
-            <input type="text" id="disabledTextInput1" class="form-control" placeholder="Primeiro e Último">
+            <label for="name">Nome</label>
+            <input type="text" name="nameInput" id="nameID" class="form-control" placeholder="Primeiro e Último">
           </div>
           <div class="form-group">
-            <label for="disabledTextInput">Email</label>
-            <input type="text" id="disabledTextInput2" class="form-control" placeholder="exemplo@dominio.com">
+            <label for="email">Email</label>
+            <input type="text" name="emailInput" id="emailID" class="form-control" placeholder="exemplo@dominio.com">
           </div>
           <div class="form-group">
-            <label for="disabledTextInput">Mensagem</label>
-            <textarea class="form-control" rows="3" placeholder="Escreva sua mensagem aqui."></textarea>
+            <label for="msg">Mensagem</label>
+            <textarea class="form-control" name="msgInput" rows="3" placeholder="Escreva sua mensagem aqui."></textarea>
             <!-- <input type="text" rows="3" id="disabledTextInput1" class="form-control" placeholder="Mensagem"> -->
           </div>
 
           </div>
-          <button type="submit" class="btn btn-cinza">Enviar</button>
-        </fieldset>
+          <input type="submit" name="submitInput" class="btn btn-cinza" value="Enviar"></input>
       </form>
+      <?php
+        $name = $_POST['nameInput'];
+        $email= $_POST['emailInput'];
+        $message = $_POST['msgInput'];
+
+        $toaddress = "davimmorales@gmail.com";
+        $subject = "PHP teste";
+        $mailcontent = "Nome do cliente: ".$name."\n".
+                       "Email do cliente: ".$email."\n".
+                       "Mensagem: ".$message."\n";
+        // $fromaddress = "From: webserver@example.com";
+        if(Enviar)
+          mail($toaddress, $subject, $mailcontent);//, $fromaddress);
+       ?>
     </div>
   </div>
 
