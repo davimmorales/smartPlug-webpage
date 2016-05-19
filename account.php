@@ -24,10 +24,17 @@ session_start();
 </head>
 <body>
   <?php  include 'layout/navbar.php';
-  if(isset($_POST[nome])){
-    $_SESSION = $POST[nome];
+  // if(isset($_POST[nome])){
+  //   $_SESSION = $POST[nome];
+  //   echo "galeto";
     //Continua pra outros atributos
-  }
+    include 'login.php';
+    $nombre = $_POST['nome'];
+    if(!$nombre)
+      echo "<h1>Sem nome</h1>";
+    else
+      echo $nombre."\n";
+
   ?>
   <div class="container">
     <h1>Minha Conta</h1>
@@ -35,11 +42,11 @@ session_start();
   </div>
   <?php
 
-  if(!isset($_SESSION[nome])){
-    include 'login.php';
-  } else{
-    echo "<h1>Controle funciona</h1>";
-  }
+  // if(!isset($_SESSION[nome])){
+  //   include 'login.php';
+  // } else{
+  //   echo "<h1>Controle funciona</h1>";
+  // }
   ?>
 
 

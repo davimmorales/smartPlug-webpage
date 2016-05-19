@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Icon[pt_BR]=/usr/share/icons/harddrive.png
+Name[pt_BR]=Servidor de Arquivos
+Icon=/usr/share/icons/harddrive.png
+Exec=.tidct/mount.sh
+Comment[pt_BR]=Servidor de arquivos dos alunos 300MB
+GenericName[pt_BR]=Servidor de Arquivos
