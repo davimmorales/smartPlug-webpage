@@ -57,7 +57,7 @@
                        "Email do cliente: ".$email."\n".
                        "Mensagem: ".$message."\n";
         // $fromaddress = "From: webserver@example.com";
-        if(Enviar)
+        if(submitInput)
           mail($toaddress, $subject, $mailcontent);//, $fromaddress);
        ?>
     </div>
