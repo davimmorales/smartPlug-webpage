@@ -1,6 +1,6 @@
 <?php
 // Start the session
-session_start();
+session_start("criar");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,23 +23,33 @@ session_start();
 
 </head>
 <body>
-  <?php  include 'layout/navbar.php';
-  // if(isset($_POST[nome])){
-  //   $_SESSION = $POST[nome];
-  //   echo "galeto";
-    //Continua pra outros atributos
-    include 'login.php';
-    $nombre = $_POST['nome'];
-    if(!$nombre)
-      echo "<h1>Sem nome</h1>";
-    else
-      echo $nombre."\n";
-
-  ?>
   <div class="container">
     <h1>Minha Conta</h1>
     <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
   </div>
+
+  <?php  include 'layout/navbar.php';
+        // include 'login.php';
+  // if(isset($_POST[nome])){
+  //   $_SESSION = $POST[nome];
+  //   echo "galeto";
+    //Continua pra outros atributos
+    // $_SESSION["nome"] = "teste";
+    $_SESSION["nome"] = $_GET['nome'];
+    // echo $_SESSION['nome'];
+    if(!$_SESSION["nome"])
+      include 'login.php';
+    else
+      echo $_SESSION["nome"]."\n";
+
+    // set($_SESSION['nome']);
+    // if(!$_SESSION["nome"])
+    //   echo "<h1>Sem nome</h1>";
+    // else
+    //   echo $_SESSION["nome"]."\n";
+
+  ?>
+
   <?php
 
   // if(!isset($_SESSION[nome])){
