@@ -1,6 +1,9 @@
 <?php
 // Start the session
-session_start("criar");
+session_start();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,44 +26,38 @@ session_start("criar");
 
 </head>
 <body>
-  <div class="container">
-    <h1>Minha Conta</h1>
-    <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
-  </div>
+
+  
 
   <?php  include 'layout/navbar.php';
-        // include 'login.php';
-  // if(isset($_POST[nome])){
-  //   $_SESSION = $POST[nome];
-  //   echo "galeto";
-    //Continua pra outros atributos
-    // $_SESSION["nome"] = "teste";
-    $_SESSION["nome"] = $_GET['nome'];
-    // echo $_SESSION['nome'];
-    if(!$_SESSION["nome"])
-      include 'login.php';
-    else
-      echo $_SESSION["nome"]."\n";
 
-    // set($_SESSION['nome']);
-    // if(!$_SESSION["nome"])
-    //   echo "<h1>Sem nome</h1>";
-    // else
-    //   echo $_SESSION["nome"]."\n";
 
-  ?>
 
+$_SESSION["nome"] = $_GET['nome'];
+
+
+
+
+if(!$_SESSION["nome"])
+include 'login.php';
+
+
+else{
+	?>
+  <div class="infoSecao text-right container-fluid">
+    <p>Bem vindo, <span class="atencaoCreme">
   <?php
+  print $_SESSION["nome"]."\n";
+  ?></span>! (<a href="logout.php">Sair</a>)
+  
+</div>
+ 
+<?php 
+  include 'controle.php';
+  }
+?>
 
-  // if(!isset($_SESSION[nome])){
-  //   include 'login.php';
-  // } else{
-  //   echo "<h1>Controle funciona</h1>";
-  // }
-  ?>
-
-
-
+  
 
 
 
