@@ -24,6 +24,7 @@ function estado($tomada, $modo){
     <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
   </div>
 
+<div class="container">
   <div class="row" style="margin-top:50px;">
     <div class="col-md-5" >
 
@@ -138,3 +139,4 @@ function estado($tomada, $modo){
       <p>Existem gráficos aqui, basta ter fé</p>
     </div>
   </div>
+</div>
