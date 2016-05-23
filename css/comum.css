@@ -41,6 +41,13 @@ body{
 .secaoCreme h1{
   color: #9E1E1E;
 }
+.atencaoCreme{
+  color: #9E1E1E;
+}
+.infoSecao{
+  background-color: #FCFBD7;
+  padding-top: 5px;
+}
 
 .verdem{
   background-color: #9E1E1E;
@@ -51,4 +58,7 @@ body{
   background-color: #9E1E1E;
   color: #FCFBD7;
   font-weight: bold;
+}
+.panel-heading p{
+  color:white;
 }
