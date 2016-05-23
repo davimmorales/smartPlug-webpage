@@ -135,6 +135,6 @@ function estado($tomada, $modo){
 
     </div>
     <div class-"col-md-7" >
-      <p>Oi</p>
+      <p>Existem gráficos aqui, basta ter fé</p>
     </div>
   </div>
