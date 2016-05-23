@@ -48,7 +48,7 @@ function estado($tomada, $modo){
             </td>
             <td>TV da Sala
             </td>
-            <td><a class="btn <?php estado("t0",1);?>" href="switch.php?ID='t0'"><?php estado("t0",2)?></a>
+            <td><a class="btn <?php estado("t0",1);?>" href="switch.php?ID=t0"><?php estado("t0",2)?></a>
             </td>
             <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></button>
               <!--Modal -->
@@ -77,7 +77,7 @@ function estado($tomada, $modo){
             </td>
             <td>TV do Quarto
             </td>
-            <td><a class="btn <?php estado("t1",1);?>" href="switch.php?ID='t1'"><?php estado("t1",2)?></a>
+            <td><a class="btn <?php estado("t1",1);?>" href="switch.php?ID=t1"><?php estado("t1",2)?></a>
             </td>
             <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT1"></span></button>
               <!--Modal -->
@@ -106,7 +106,7 @@ function estado($tomada, $modo){
             </td>
             <td>Aparelho super secreto
             </td>
-            <td><a class="btn <?php estado("t2",1);?>" href="switch.php?ID='t1'"><?php estado("t2",2)?></a>
+            <td><a class="btn <?php estado("t2",1);?>" href="switch.php?ID=t2"><?php estado("t2",2)?></a>
             </td>
             <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT2"></span></button>
               <!--Modal -->
