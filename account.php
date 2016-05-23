@@ -27,7 +27,7 @@ session_start();
 </head>
 <body>
 
-  
+
 
   <?php  include 'layout/navbar.php';
 
@@ -49,15 +49,15 @@ else{
   <?php
   print $_SESSION["nome"]."\n";
   ?></span>! (<a href="logout.php">Sair</a>)
-  
+
 </div>
- 
-<?php 
+
+<?php
   include 'controle.php';
   }
 ?>
 
-  
+
 
 
 
