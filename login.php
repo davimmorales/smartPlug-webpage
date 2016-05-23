@@ -18,7 +18,7 @@
     </div>
     <div class="col-md-6">
       <h2>Quero me cadastrar</h2>
-      <form action="account.php" method:"post">
+      <form action="autenticacao.php" method:"post">
         <input type="text" name="nome" class="form-control" placeholder="nome"><br/>
         <input type="e-mail" name="email" class="form-control" placeholder="e-mail"><br/>
         <input type="password" name="password" class="form-control" placeholder="senha"><br/>
