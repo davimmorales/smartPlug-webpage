@@ -8,12 +8,13 @@
     <div class="col-md-6">
 
       <h2>Possuo uma conta</h2>
-
+      <form action='account.php' method='post'>
       <input type="e-mail" class="form-control" placeholder="e-mail"><br/>
       <input type="password" class="form-control" placeholder="senha"><br/>
-      <div class="btn btn-cinza">Acesse sua conta </div>
+      <input type="submit" name="submitLogin" class="btn btn-cinza" value="Acesse sua conta" />
       <h3> Esqueceu seus dados? Não tem problema!</h3>
       <p> Recupere por <a target="_blank">aqui</a></p>
+    </form>
 
     </div>
     <div class="col-md-6">
@@ -24,8 +25,9 @@
         <input type="password" name="password" class="form-control" placeholder="senha"><br/>
         <input type="password" name="passwordConfirm" class="form-control" placeholder="insira novamente sua senha"><br/>
 
-        <input type="radio" name="gender" value="M" id=male />                        Masculino
+        <!-- <input type="radio" name="gender" value="M" id=male />                       Masculino-->       <form action='account.php' method='post'>
       </label>
+      <!--
       <label class="radio-inline">
         <input type="radio" name="gender" value="F" id=female />                        Feminino
       </label>
@@ -168,11 +170,65 @@
               </select>
             </select>
             <br/>
-          </div>
+          </div> -->
         </div>
         <input type="submit" value="Crie sua conta" name="cadastro" class="btn btn-cinza"/>
       </form>
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <?php
+
+  	include("conexao.php");
+
+  	if ($_POST[cadastro]){
+      $nome = $_POST['nome'];
+      $email = $_POST['email'];
+      $pass = $_POST['password'];
+      $pass2 = $_POST['passwordConfirm'];
+  		$buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$email'");
+  		if ($buscaUser->num_rows != 0){ // EMAIL JA CADASTRADO
+  			echo "O EMAIL TA CADASTRADO";
+  		}
+  		else{
+  			if($pass != $pass2){// AS SENHAS DIGITADAS SAO DIFERENTES
+  				echo "AS SENHAS SÃO DIFERENTES";
+  			}
+  			else{
+  				$senhaSha = hash('sha256', $pass);
+  				$conexao->query("INSERT INTO usuarios(nome,email,senha) VALUES('".$nome."','".$email."','".$senhaSha."')");
+  				// ENVIA PARA OUTRA PAGINA
+  				echo "CADASTRO REALIZADO COM SUCESSO!";
+  			}
+  		}
+  	}
+
+    if($_POST[submitLogin]){
+      $emailLogin = $_POST['emailLogin'];
+      $pwdLogin = $_POST['pwdLogin'];
+      $buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$emailLogin'");
+      if(!$buscaUser->num_rows)//==0
+        echo "Usuário não existe";
+      else {
+        $senhaSha = hash('sha256', $pwdLogin);
+        $rBuscaUser = $buscaUser->fetch_assoc();
+
+        if($senhaSha!=$rBuscaUser[senha])
+          echo "A senha tá errada.";
+        else
+          echo "Acesso realizado com sucesso";
+
+        }
+      }
+
+
+
+
+
+    // emailLogin"
+    // pwdLogin"
+    // ="submitLogin
+
+  	  ?>
+
 
     </div>
   </div>

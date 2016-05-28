@@ -1,9 +1,6 @@
 <?php
 // Start the session
 session_start();
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,16 +28,10 @@ session_start();
 
   <?php  include 'layout/navbar.php';
 
-
-
-
-
-
+// $_SESSION["nome"] = $_GET['nome'];
 
 if(!$_SESSION["nome"])
-include 'login.php';
-
-
+  include 'login.php';
 else{
 	?>
   <div class="infoSecao text-right container-fluid">
