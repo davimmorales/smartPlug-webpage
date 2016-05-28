@@ -30,7 +30,32 @@ function estado($tomada, $modo){
 
       <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading text-center" style="color:#FCFBD7;"><b>Seus dispositivos</b></div>
+        <div class="panel-heading text-center" style="color:#FCFBD7;">
+            <b>Seus Dispositivos</b>
+            <button class="btn btn-cinza"><span class="glyphicon glyphicon-plus"data-toggle="modal" data-target="#ModalAdicionarTomada"></span></button>
+        </div>
+        <!-- Modal Add-->
+        <div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Adicionar Novo Dispositivo</h4>
+              </div>
+              <div class="modal-body">
+                <form action="autenticacao.php" method:"post">
+                  <input type="text" name="nomeTomada" class="form-control" placeholder="nome"><br/>
+                  <input type="text" name="cSerie" class="form-control" placeholder="Código de Série"><br/>
+                  <input type="submit" value="Adicionar Dispositivo" name="submitNovaTomada" class="btn btn-cinza"/>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </form>
+              </div>
+              <!-- <div class="modal-footer"> -->
+                <!-- <button type="button" class="btn btn-cinza">Save changes</button> -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
 
         <!-- Table -->
         <table class="text-center table">
