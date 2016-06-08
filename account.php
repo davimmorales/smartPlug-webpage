@@ -58,6 +58,7 @@ session_start();
     }
     ?>
 
+<!-- Login Functions -->
   	<?php
     $show_modal = false;
   	include("conexao.php");
@@ -66,6 +67,7 @@ session_start();
       $state = "no cadastro";
       $nome = $_POST['nome'];
       $email = $_POST['email'];
+      $_SESSION['owner'] = $email;
       $pass = $_POST['password'];
       $pass2 = $_POST['passwordConfirm'];
   		$buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$email'");
@@ -92,6 +94,7 @@ session_start();
     if($_POST[submitLogin]){
       $state = "no login";
       $emailLogin = $_POST['emailLogin'];
+      $_SESSION['owner'] = $emailLogin; 
       $pwdLogin = $_POST['pwdLogin'];
       $buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$emailLogin'");
       if(!($emailLogin&$pwdLogin)){//CAMPO NÃO PREENCHIDO
@@ -117,6 +120,8 @@ session_start();
         }
       }
   	  ?>
+
+  <!-- Control Functions -->
 
 
 <!-- Login -->
