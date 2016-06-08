@@ -67,7 +67,7 @@ session_start();
       $state = "no cadastro";
       $nome = $_POST['nome'];
       $email = $_POST['email'];
-      $deviceEmail = $email;
+      $_SESSION["deviceEmail"] = $email;
       $pass = $_POST['password'];
       $pass2 = $_POST['passwordConfirm'];
   		$buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$email'");
@@ -96,7 +96,7 @@ session_start();
     if($_POST[submitLogin]){
       $state = "no login";
       $emailLogin = $_POST['emailLogin'];
-      $deviceEmail = $emailLogin;
+      $_SESSION["deviceEmail"] = $emailLogin;
       $pwdLogin = $_POST['pwdLogin'];
       $buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$emailLogin'");
       if(!($emailLogin&$pwdLogin)){//CAMPO NÃO PREENCHIDO
@@ -149,11 +149,25 @@ session_start();
     if($_POST[submitNovaTomada]){
       $deviceName = $_POST['nomeTomada'];
       $deviceCode = $_POST['cSerie'];
-      $deviceOwner = $_SESSION["nome"];
-      // $deviceEmail;
+      $deviceEmail = $_SESSION["deviceEmail"];
 
       $searchDeviceCode = $conexao->query("SELECT * FROM tomadas WHERE serie='$deviceCode'");
-      // $searchDeviceName = $conexao->query("SELECT * FROM tomadas WHERE id_user='$deviceOwner'");
+      // $searchDeviceOwner = $conexao->query("SELECT * FROM tomadas WHERE id_user='$deviceOwner'");
+      // while($row = )
+
+      if(!($deviceName&$deviceCode)){//CAMPO NÃO PREENCHIDO
+        $warning = "Por favor, preencha todos os campos do cadastro";
+        $show_modal = true;
+      }
+      else if($searchDeviceCode->num_rows){
+        $warning = "Esse dispositivo já foi adicionado";
+        $show_modal = true;
+      }
+      else{
+         $conexao->query("INSERT INTO tomadas(id_user,nome,serie) VALUES('".$deviceEmail."','".$deviceName."','".$deviceCode."')");
+         $warning = "Dispositivo adicionado com sucesso";
+         $show_modal = true;
+      }
 
 
 
@@ -180,6 +194,7 @@ session_start();
         $_SESSION["nome"] = $nome;
         $_SESSION["includeLogin"] = true;
         $_SESSION["includeControle"] = true;
+        $_SESSION["deviceEmail"];
 
 
      ?>
