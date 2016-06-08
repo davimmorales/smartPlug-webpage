@@ -58,6 +58,7 @@ session_start();
     }
     ?>
 
+<!-- Login functions -->
   	<?php
     $show_modal = false;
   	include("conexao.php");
@@ -66,6 +67,7 @@ session_start();
       $state = "no cadastro";
       $nome = $_POST['nome'];
       $email = $_POST['email'];
+      $deviceEmail = $email;
       $pass = $_POST['password'];
       $pass2 = $_POST['passwordConfirm'];
   		$buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$email'");
@@ -94,6 +96,7 @@ session_start();
     if($_POST[submitLogin]){
       $state = "no login";
       $emailLogin = $_POST['emailLogin'];
+      $deviceEmail = $emailLogin;
       $pwdLogin = $_POST['pwdLogin'];
       $buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$emailLogin'");
       if(!($emailLogin&$pwdLogin)){//CAMPO NÃO PREENCHIDO
@@ -119,6 +122,67 @@ session_start();
         }
       }
   	  ?>
+
+  <!-- Control Functions -->
+    <!-- Adding a new device -->
+    <?php
+
+    // $rBuscaUser = $buscaUser->fetch_assoc();
+    // $rBuscaUser[senha]
+    // while($row = $buscaEnd->fetch_assoc()) {
+    // $cats[$cont] = array(
+    // "id" => $row[id],
+    // "nome" => utf8_encode ($row[nome]),
+    // "cep" => utf8_encode ($row[cep]),
+    // "endereco" => utf8_encode ($row[endereco]),
+    // "numero" => utf8_encode ($row[numero]),
+    // "bairro" => utf8_encode ($row[bairro]),
+    // "complemento" => utf8_encode ($row[complemento]),
+    // "telefone" => utf8_encode ($row[telefone]),
+    // "cidade" => utf8_encode ($row[cidade]),
+    // "estado" => utf8_encode ($row[estado])
+    // );
+    //
+    // $cont++;
+    // }
+
+    if($_POST[submitNovaTomada]){
+      $deviceName = $_POST['nomeTomada'];
+      $deviceCode = $_POST['cSerie'];
+      $deviceOwner = $_SESSION["nome"];
+      // $deviceEmail;
+
+      $searchDeviceCode = $conexao->query("SELECT * FROM tomadas WHERE serie='$deviceCode'");
+      // $searchDeviceName = $conexao->query("SELECT * FROM tomadas WHERE id_user='$deviceOwner'");
+
+
+
+    }
+
+
+    $buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$email'");
+    if(!($nome&$email&$pass&$pass2)){//CAMPO NÃO PREENCHIDO
+      $warning = "Por favor, preencha todos os campos do cadastro";
+      $show_modal = true;
+    }
+    else if ($buscaUser->num_rows != 0){ // EMAIL JA CADASTRADO
+      $warning = "Alguém já escolheu este email de cadastro, tente outro";
+      $show_modal = true;
+    }
+    else if($pass != $pass2){// AS SENHAS DIGITADAS SAO DIFERENTES
+        $warning = "As senhas digitadas não se correspondem";
+        $show_modal = true;
+      }
+
+      else{
+        $senhaSha = hash('sha256', $pass);
+        $conexao->query("INSERT INTO usuarios(nome,email,senha) VALUES('".$nome."','".$email."','".$senhaSha."')");
+        $_SESSION["nome"] = $nome;
+        $_SESSION["includeLogin"] = true;
+        $_SESSION["includeControle"] = true;
+
+
+     ?>
 
 
 <!-- Login -->
