@@ -1,36 +1,105 @@
-  <div class="container">
-    <h1>Minha Conta</h1>
-    <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
-  </div>
+
+	  <?php
+  // ob_start();
+  $show_modal = false;
+	include("conexao.php");
+  $action = "account.php";
+	if ($_POST[cadastro]){
+    $state = "no cadastro";
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $pass = $_POST['password'];
+    $pass2 = $_POST['passwordConfirm'];
+		$buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$email'");
+    if(!($nome&$email&$pass&$pass2)){//CAMPO NÃO PREENCHIDO
+      $warning = "Por favor, preencha todos os campos do cadastro";
+      $show_modal = true;
+    }
+		else if ($buscaUser->num_rows != 0){ // EMAIL JA CADASTRADO
+      $warning = "Alguém já escolheu este email de cadastro, tente outro";
+      $show_modal = true;
+		}
+		else if($pass != $pass2){// AS SENHAS DIGITADAS SAO DIFERENTES
+				$warning = "As senhas digitadas não se correspondem";
+        $show_modal = true;
+			}
+
+			else{
+				$senhaSha = hash('sha256', $pass);
+				$conexao->query("INSERT INTO usuarios(nome,email,senha) VALUES('".$nome."','".$email."','".$senhaSha."')");
+				// ENVIA PARA OUTRA PAGINA
+				echo "CADASTRO REALIZADO COM SUCESSO!";
+			}
+		// }
+	}
+
+  if($_POST[submitLogin]){
+    $state = "no login";
+    $emailLogin = $_POST['emailLogin'];
+    $pwdLogin = $_POST['pwdLogin'];
+    $buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$emailLogin'");
+    if(!($emailLogin&$pwdLogin)){//CAMPO NÃO PREENCHIDO
+      $warning = "Por favor, preencha todos os campos para entrar";
+      $show_modal = true;
+    }
+    else if(!$buscaUser->num_rows){//==0
+      $warning = "Endereço de email inválido";
+      $show_modal = true;
+    }
+    else {
+      $senhaSha = hash('sha256', $pwdLogin);
+      $rBuscaUser = $buscaUser->fetch_assoc();
+      if($senhaSha!=$rBuscaUser[senha]){
+        $warning = "Senha inválida";
+        $show_modal = true;
+      }
+      else{
+        // ob_clean();
+				$includeLogin = false;
+				include 'controle.php';
+        // header('location: http://52.37.77.21/index.php');
+        // die();
+      }
+      }
+    }
+
+  // emailLogin"
+  // pwdLogin"
+  // ="submitLogin
+
+	  ?>
+
+
 
 <div class="container">
   <div class=" row">
     <div class="col-md-6">
 
       <h2>Possuo uma conta</h2>
-      <form action='account.php' method='post'>
-      <input type="e-mail" class="form-control" placeholder="e-mail"><br/>
-      <input type="password" class="form-control" placeholder="senha"><br/>
-      <input type="submit" name="submitLogin" class="btn btn-cinza" value="Acesse sua conta" />
-      <h3> Esqueceu seus dados? Não tem problema!</h3>
-      <p> Recupere por <a target="_blank">aqui</a></p>
-    </form>
+      <form action="<?php echo $action; ?>" method='post'>
+        <input type="e-mail" name="emailLogin" class="form-control" placeholder="e-mail"><br/>
+        <input type="password" name="pwdLogin" class="form-control" placeholder="senha"><br/>
+        <input type="submit" name="submitLogin" class="btn btn-cinza" value="Acesse sua conta" />
+        <h3> Esqueceu seus dados? Não tem problema!</h3>
+        <p> Recupere por <a target="_blank">aqui</a></p>
+      </form>
+
 
     </div>
     <div class="col-md-6">
       <h2>Quero me cadastrar</h2>
-      <form action="autenticacao.php" method:"post">
+      <form action='account.php' method='post'>
         <input type="text" name="nome" class="form-control" placeholder="nome"><br/>
         <input type="e-mail" name="email" class="form-control" placeholder="e-mail"><br/>
         <input type="password" name="password" class="form-control" placeholder="senha"><br/>
         <input type="password" name="passwordConfirm" class="form-control" placeholder="insira novamente sua senha"><br/>
 
-        <!-- <input type="radio" name="gender" value="M" id=male />                       Masculino-->       <form action='account.php' method='post'>
+        <!-- <input type="radio" name="gender" value="M" id=male />                        Masculino -->
       </label>
-      <!--
-      <label class="radio-inline">
+      <!--<label class="radio-inline">
         <input type="radio" name="gender" value="F" id=female />                        Feminino
       </label>
+
       <br/><br/>
       <div class="container-fluid">
         <div class="col-xs-4 col-md-4">
@@ -170,65 +239,27 @@
               </select>
             </select>
             <br/>
-          </div> -->
+          </div>
+		  -->
         </div>
         <input type="submit" value="Crie sua conta" name="cadastro" class="btn btn-cinza"/>
       </form>
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <?php
 
-  	include("conexao.php");
-
-  	if ($_POST[cadastro]){
-      $nome = $_POST['nome'];
-      $email = $_POST['email'];
-      $pass = $_POST['password'];
-      $pass2 = $_POST['passwordConfirm'];
-  		$buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$email'");
-  		if ($buscaUser->num_rows != 0){ // EMAIL JA CADASTRADO
-  			echo "O EMAIL TA CADASTRADO";
-  		}
-  		else{
-  			if($pass != $pass2){// AS SENHAS DIGITADAS SAO DIFERENTES
-  				echo "AS SENHAS SÃO DIFERENTES";
-  			}
-  			else{
-  				$senhaSha = hash('sha256', $pass);
-  				$conexao->query("INSERT INTO usuarios(nome,email,senha) VALUES('".$nome."','".$email."','".$senhaSha."')");
-  				// ENVIA PARA OUTRA PAGINA
-  				echo "CADASTRO REALIZADO COM SUCESSO!";
-  			}
-  		}
-  	}
-
-    if($_POST[submitLogin]){
-      $emailLogin = $_POST['emailLogin'];
-      $pwdLogin = $_POST['pwdLogin'];
-      $buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$emailLogin'");
-      if(!$buscaUser->num_rows)//==0
-        echo "Usuário não existe";
-      else {
-        $senhaSha = hash('sha256', $pwdLogin);
-        $rBuscaUser = $buscaUser->fetch_assoc();
-
-        if($senhaSha!=$rBuscaUser[senha])
-          echo "A senha tá errada.";
-        else
-          echo "Acesso realizado com sucesso";
-
-        }
-      }
-
-
-
-
-
-    // emailLogin"
-    // pwdLogin"
-    // ="submitLogin
-
-  	  ?>
-
+<!-- Modals -->
+          <div class="modal fade" id="ModalW1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title" id="myModalLabel">Falha <?php  echo $state; ?></h4>
+</div>
+                <div class="modal-body">
+                  <?php  echo $warning; ?>
+                </div>
+              </div>
+            </div>
+          </div>
 
     </div>
   </div>
