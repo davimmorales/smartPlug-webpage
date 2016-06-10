@@ -247,10 +247,18 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
             <td>Configurar
             </td>
           </tr>
+          <?php
+            $counter = 0;
+            $owner = $_SESSION['owner'];
+            echo $conexao->query("SELECT * FROM tomadas WHERE id_user='$owner'");
+            // echo $galetito[0][0];
+            // echo $conexao->query("SELECT * FROM 'tomadas' WHERE 'id_user'= "$_SESSION['owner']"");
+            // echo $devicesOnTable;
+          ?>
           <tr>
-            <td>1
+            <td><<?php echo "nothing"; ?>
             </td>
-            <td>TV da Sala
+            <td><<?php echo  "nothing";?>
             </td>
             <td><a class="btn <?php estado("t0",1);?>" href="switch.php?ID=t0"><?php estado("t0",2)?></a>
             </td>
@@ -273,67 +281,9 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
                   </div>
                 </div>
               </div>
-
             </td>
           </tr>
-          <tr>
-            <td>2
-            </td>
-            <td>TV do Quarto
-            </td>
-            <td><a class="btn <?php estado("t1",1);?>" href="switch.php?ID=t1"><?php estado("t1",2)?></a>
-            </td>
-            <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT1"></span></button>
-              <!--Modal -->
-              <div class="modal fade" id="ModalT1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Tomada 2</h4>
-                    </div>
-                    <div class="modal-body">
-                      Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-cinza">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-            </td>
-          </tr>
-          <tr>
-            <td>3
-            </td>
-            <td>Aparelho super secreto
-            </td>
-            <td><a class="btn <?php estado("t2",1);?>" href="switch.php?ID=t2"><?php estado("t2",2)?></a>
-            </td>
-            <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT2"></span></button>
-              <!--Modal -->
-              <div class="modal fade" id="ModalT2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Tomada 3</h4>
-                    </div>
-                    <div class="modal-body">
-                      Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-cinza">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </td>
-          </tr>
         </table>
       </div>
 
