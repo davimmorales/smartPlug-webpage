@@ -94,7 +94,7 @@ session_start();
     if($_POST[submitLogin]){
       $state = "no login";
       $emailLogin = $_POST['emailLogin'];
-      $_SESSION['owner'] = $emailLogin; 
+      $_SESSION['owner'] = $emailLogin;
       $pwdLogin = $_POST['pwdLogin'];
       $buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$emailLogin'");
       if(!($emailLogin&$pwdLogin)){//CAMPO NÃO PREENCHIDO
@@ -118,6 +118,13 @@ session_start();
           $_SESSION["includeControle"] = true;
         }
         }
+      }
+
+      if ($_POST[submitNovaTomada]){
+        $newDeviceName = $_POST['nomeTomada'];
+        $newDeviceCode = $_POST['cSerie'];
+        $newDeviceOwner = $_SESSION['owner'];
+        $conexao->query("INSERT INTO tomadas(id_user,nome,serie) VALUES('".$newDeviceOwner."','".$newDeviceName."','".$newDeviceCode."')");
       }
   	  ?>
 
