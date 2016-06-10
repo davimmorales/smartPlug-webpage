@@ -79,8 +79,8 @@ session_start();
 
       // Set options for Anthony's pie chart.
       var options = {title:'Uso por aparelho',
-                     width:600,
-                     height:300};
+                     width:400,
+                     height:250};
 
       // Instantiate and draw the chart for Anthony's pizza.
       var chart = new google.visualization.ColumnChart(document.getElementById('Anthony_chart_div'));
