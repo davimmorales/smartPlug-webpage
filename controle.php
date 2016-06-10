@@ -19,14 +19,14 @@ function estado($tomada, $modo){
     }
   }
   ?>
-  <div class="container">
+  <center>
     <h1>Minha Conta</h1>
     <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
-  </div>
+  </center>
 
-<div class="container">
-  <div class="row" style="margin-top:50px;">
-    <div class="col-md-5" >
+<div class="container-fluid">
+  <div class="row" style="margin-top:80px;">
+    <div class="col-md-3" >
 
       <div class="panel panel-default">
         <!-- Default panel contents -->
@@ -160,8 +160,12 @@ function estado($tomada, $modo){
       </div>
 
     </div>
-    <div class-"col-md-7" >
-      <p>Existem gráficos aqui, basta ter fé</p>
+    <div class="col-md-9" >
+      <div class="container-fluid">
+        <div class="col-md-6"><div  id="Sarah_chart_div" style="width:100%"></div></div>
+        <div class="col-md-6" ><div id="Daily"></div></div>
+      </div>
+      <div id="Anthony_chart_div"></div>
     </div>
   </div>
 </div>
