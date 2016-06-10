@@ -26,7 +26,7 @@ function estado($tomada, $modo){
 
 <div class="container-fluid">
   <div class="row" style="margin-top:80px;">
-    <div class="col-md-3" >
+    <div class="col-md-4" >
 
       <div class="panel panel-default">
         <!-- Default panel contents -->
@@ -68,6 +68,8 @@ function estado($tomada, $modo){
             </td>
             <td>Configurar
             </td>
+            <td>Selecionar
+            </td>
           </tr>
           <tr>
             <td>1
@@ -96,6 +98,9 @@ function estado($tomada, $modo){
                 </div>
               </div>
 
+            </td>
+            <td><div class="checkbox">
+              <input type="checkbox" name="t0sel"></div>
             </td>
           </tr>
           <tr>
@@ -126,6 +131,9 @@ function estado($tomada, $modo){
               </div>
 
             </td>
+            <td><div class="checkbox">
+              <input type="checkbox" name="t1sel"></div>
+            </td>
           </tr>
           <tr>
             <td>3
@@ -155,14 +163,17 @@ function estado($tomada, $modo){
               </div>
 
             </td>
+            <td><div class="checkbox">
+              <input type="checkbox" name="t3sel"></div>
+            </td>
           </tr>
         </table>
       </div>
 
     </div>
-    <div class="col-md-9" >
+    <div class="col-md-8" >
       <div class="container-fluid">
-        <div class="col-md-6"><center><div  id="Sarah_chart_div" style="width:100%"></div><center></div>
+        <div class="col-md-6"><center><div  id="Sarah_chart_div"></div><center></div>
         <div class="col-md-6"><center><div id="Daily"></div></center></div>
       </div>
       <div class="container-fluid">
