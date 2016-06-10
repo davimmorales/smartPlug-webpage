@@ -117,7 +117,7 @@ session_start();
                 title: 'Uso diario'
               },
               width: 400,
-              height: 300
+              height: 250
             };
             //Instantiate graph
             var chart = new google.visualization.LineChart(document.getElementById('Daily'));
