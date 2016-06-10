@@ -25,6 +25,24 @@
     <p>Será um prazer ajudá-lo.</p>
 
   </div>
+  <?php
+
+    if($_POST[submitInput]){
+
+  $name = $_POST['nameInput'];
+  $email= $_POST['emailInput'];
+  $message = $_POST['msgInput'];
+
+  $toaddress = "davimmorales@gmail.com";
+  $subject = "PHP teste";
+  $mailcontent = "Nome do cliente: ".$name."\n".
+           "Email do cliente: ".$email."\n".
+           "Mensagem: ".$message."\n";
+  // $fromaddress = "From: webserver@example.com";
+  mail($toaddress, $subject, $mailcontent);//, $fromaddress);
+
+}
+   ?>
 
   <div class="container">
     <div class=" row">
@@ -46,29 +64,7 @@
           </div>
           <input type="submit" name="submitInput" class="btn btn-cinza" value="Enviar"></input>
       </form>
-      <?php
-        
-        if($_POST['submitInput']){
-			
-			$name = $_POST['nameInput'];
-			$email= $_POST['emailInput'];
-			$message = $_POST['msgInput'];
 
-			$toaddress = "davimmorales@gmail.com";
-			$subject = "PHP teste";
-			$mailcontent = "Nome do cliente: ".$name."\n".
-						   "Email do cliente: ".$email."\n".
-						   "Mensagem: ".$message."\n";
-			// $fromaddress = "From: webserver@example.com";
-			mail($toaddress, $subject, $mailcontent);//, $fromaddress);
-			
-		}
-          
-	  
-	  
-	  
-	  
-       ?>
     </div>
   </div>
 

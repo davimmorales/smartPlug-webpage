@@ -127,7 +127,7 @@ session_start();
         $conexao->query("INSERT INTO tomadas(id_user,nome,serie) VALUES('".$newDeviceOwner."','".$newDeviceName."','".$newDeviceCode."')");
       }
   	  ?>
-
+<!-- SELECT * FROM `tomadas` WHERE `id_user`= "asenhae@123456.com"; -->
   <!-- Control Functions -->
 
 
@@ -221,7 +221,7 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
                 <h4 class="modal-title" id="myModalLabel">Adicionar Novo Dispositivo</h4>
               </div>
               <div class="modal-body">
-                <form action="autenticacao.php" method:"post">
+                <form action="account.php" method="post">
                   <input type="text" name="nomeTomada" class="form-control" placeholder="nome"><br/>
                   <input type="text" name="cSerie" class="form-control" placeholder="Código de Série"><br/>
                   <input type="submit" value="Adicionar Dispositivo" name="submitNovaTomada" class="btn btn-cinza"/>
