@@ -124,7 +124,9 @@ session_start();
         $newDeviceName = $_POST['nomeTomada'];
         $newDeviceCode = $_POST['cSerie'];
         $newDeviceOwner = $_SESSION['owner'];
-        $conexao->query("INSERT INTO tomadas(id_user,nome,serie) VALUES('".$newDeviceOwner."','".$newDeviceName."','".$newDeviceCode."')");
+        $checkCode = $conexao->query("SELECT * FROM tomadas WHERE serie = '$newDeviceCode'");
+        if(!$checkCode->num_rows)
+          $conexao->query("INSERT INTO tomadas(id_user,nome,serie) VALUES('".$newDeviceOwner."','".$newDeviceName."','".$newDeviceCode."')");
       }
   	  ?>
 <!-- SELECT * FROM `tomadas` WHERE `id_user`= "asenhae@123456.com"; -->
@@ -248,17 +250,25 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
             </td>
           </tr>
           <?php
+            include("conexao.php");
             $counter = 0;
             $owner = $_SESSION['owner'];
-            echo $conexao->query("SELECT * FROM tomadas WHERE id_user='$owner'");
-            // echo $galetito[0][0];
-            // echo $conexao->query("SELECT * FROM 'tomadas' WHERE 'id_user'= "$_SESSION['owner']"");
-            // echo $devicesOnTable;
+            $devicesData = $conexao->query("SELECT * FROM tomadas WHERE id_user = '$owner'");
+            while($rDevicesData = $devicesData->fetch_assoc()){
+              $devicesArray[$counter] = array('id'=>$rDevicesData[id],
+              'id_user'=>utf8_encode($rDevicesData[id_user]),
+              'nome' => utf8_encode($rDevicesData[nome]),
+              'serie'=>utf8_encode($rDevicesData[serie]),
+              'status'=>$rDevicesData[status]);
+              $counter++;
+            }
+
+            for ($i=0; $i < $counter; $i++) {
           ?>
           <tr>
-            <td><<?php echo "nothing"; ?>
+            <td><?php echo $i+1; ?>
             </td>
-            <td><<?php echo  "nothing";?>
+            <td><?php echo $devicesArray[$i]['nome']; ?>
             </td>
             <td><a class="btn <?php estado("t0",1);?>" href="switch.php?ID=t0"><?php estado("t0",2)?></a>
             </td>
@@ -283,6 +293,7 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
               </div>
             </td>
           </tr>
+          <?php } ?>
 
         </table>
       </div>
