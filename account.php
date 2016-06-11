@@ -30,6 +30,7 @@ session_start();
   <?php  include 'layout/navbar.php';
       $_SESSION["includeLogin"];
       $_SESSION["includeControle"];
+
       if($_POST[logout]){
         $_SESSION["includeLogin"] = false;
         $_SESSION["includeControle"] = false;
@@ -61,6 +62,7 @@ session_start();
 <!-- Login Functions -->
   	<?php
     $show_modal = false;
+    $showDelete_modal = false;
   	include("conexao.php");
     $action = "account.php";
   	if ($_POST[cadastro]){
@@ -87,6 +89,7 @@ session_start();
   				$senhaSha = hash('sha256', $pass);
   				$conexao->query("INSERT INTO usuarios(nome,email,senha) VALUES('".$nome."','".$email."','".$senhaSha."')");
           $_SESSION["nome"] = $nome;
+          $_SESSION['owner'] = $rBuscaUser[id];
           $_SESSION["includeLogin"] = true;
           $_SESSION["includeControle"] = true;
   			}
@@ -94,7 +97,6 @@ session_start();
     if($_POST[submitLogin]){
       $state = "no login";
       $emailLogin = $_POST['emailLogin'];
-      $_SESSION['owner'] = $emailLogin;
       $pwdLogin = $_POST['pwdLogin'];
       $buscaUser = $conexao->query("SELECT * FROM usuarios WHERE email='$emailLogin'");
       if(!($emailLogin&$pwdLogin)){//CAMPO NÃO PREENCHIDO
@@ -109,6 +111,7 @@ session_start();
         $senhaSha = hash('sha256', $pwdLogin);
         $rBuscaUser = $buscaUser->fetch_assoc();
         $_SESSION["nome"] = $rBuscaUser[nome];
+        $_SESSION['owner'] = $rBuscaUser[id];
         if($senhaSha!=$rBuscaUser[senha]){
           $warning = "Senha inválida";
           $show_modal = true;
@@ -248,9 +251,12 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
             </td>
             <td>Configurar
             </td>
+            <td>Excluir
+            </td>
           </tr>
           <?php
             include("conexao.php");
+            $showDelete_modal = false;
             $counter = 0;
             $owner = $_SESSION['owner'];
             $devicesData = $conexao->query("SELECT * FROM tomadas WHERE id_user = '$owner'");
@@ -264,15 +270,29 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
             }
 
             for ($i=0; $i < $counter; $i++) {
+              if(!$_POST[check_list][$i]){
+              if($devicesArray[$i]['status'])
+                $statusValue[$i] = "on";
+              else
+                $statusValue[$i] = "off";
+              }
+              else {
+                $statusValue[$i] = "changed";
+              }
+
           ?>
           <tr>
             <td><?php echo $i+1; ?>
             </td>
             <td><?php echo $devicesArray[$i]['nome']; ?>
             </td>
-            <td><a class="btn <?php estado("t0",1);?>" href="switch.php?ID=t0"><?php estado("t0",2)?></a>
+            <td>
+              <form action='account.php' method='post'>
+                <input type="submit" name="check_list[<?php echo $i; ?>]" class="btn btn-cinza"  value=<?php echo $statusValue[$i] ?> >
+              </form>
             </td>
             <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></button>
+
               <!--Modal -->
               <div class="modal fade" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -292,8 +312,62 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
                 </div>
               </div>
             </td>
+            <td>
+              <form action="account.php" method='post'>
+                <input type="submit" name="deleteOne[<?php echo $i; ?>]" class="btn btn-cinza" value="Excluir" />
+              </form>
+            </td>
+
           </tr>
-          <?php } ?>
+          <?php }
+          for ($j=0; $j < $counter; $j++) {
+            if($_POST[check_list][$j]){
+              if($devicesArray[$j]['status']==1){
+                header('Location: account.php');
+                $deviceID = $devicesArray[$j]['id'];
+                $conexao->query("UPDATE tomadas SET status=0 WHERE id=$deviceID");
+                // $statusValue[$j]= "off";
+              }
+              else if($devicesArray[$j]['status']==0) {
+                $deviceID = $devicesArray[$j]['id'];
+                $conexao->query("UPDATE tomadas SET status=1 WHERE id=$deviceID");
+                // $statusValue[$j]= "on";
+              }
+            }
+            else if($_POST[deleteOne][$j]){
+              $_SESSION['deleteElement'] = $j;
+              $showDelete_modal = true;
+            }
+            elseif ($_POST[deleteTwo][$j]) {
+              $deviceID = $devicesArray[$j]['id'];
+              $deviceName = $devicesArray[$j]['nome'];
+              $conexao->query("DELETE FROM tomadas where id=$deviceID");
+              echo "Tomada '".$deviceName."' excluída com sucesso";
+            }
+          }
+
+
+           ?>
+
+           <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+             <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   <h4 class="modal-title" id="myModalLabel">Excluir</h4>
+                 </div>
+                 <div class="modal-body">
+                   Você tem certeza de que deseja excluir a tomada <?php echo $_SESSION['deleteElement']+1; ?>?
+                 </div>
+                 <div class="modal-footer">
+                   <form action="account.php" method='post'>
+                     <input type="submit" name="deleteTwo[<?php echo $_SESSION['deleteElement']; ?>]" class="btn btn-cinza" value="Sim" />
+                   </form>
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                 </div>
+               </div>
+             </div>
+           </div>
 
         </table>
       </div>
@@ -317,6 +391,9 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
   <script src="js/bootstrap.min.js"></script>
   <?php if($show_modal):?>
     <script> $('#ModalW1').modal('show');</script>
+  <?php endif;?>
+  <?php if($showDelete_modal):?>
+    <script> $('#ModalDelete').modal('show');</script>
   <?php endif;?>
 </body>
 </html>
