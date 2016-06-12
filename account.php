@@ -22,9 +22,9 @@ session_start();
   <link href="css/comum.css" rel="stylesheet">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <!--RECAPTCHA-->
-  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <!--script src='https://www.google.com/recaptcha/api.js'></script-->
 
-  
+
 
   <!-- Google Charts -->
   <script type="text/javascript">

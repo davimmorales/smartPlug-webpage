@@ -26,7 +26,7 @@
         <input type="e-mail" name="email" class="form-control" placeholder="e-mail"><br/>
         <input type="password" name="password" class="form-control" placeholder="senha"><br/>
         <input type="password" name="passwordConfirm" class="form-control" placeholder="insira novamente sua senha"><br/>
-        <div class="g-recaptcha" data-sitekey="6Le0ayITAAAAAMBOtWWbOu7sYEUyKAHuD2IV_eXQ"></div>
+        <!--div class="g-recaptcha" data-sitekey="6Le0ayITAAAAAMBOtWWbOu7sYEUyKAHuD2IV_eXQ"></div-->
         <form action='account.php' method='post'>
       </label>
       <br/>
