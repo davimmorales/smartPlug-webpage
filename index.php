@@ -30,26 +30,28 @@
     </div>
   </div>
 
-  <div class="container ">
-    <h1>O poder da tomada reinventado</h1>
-    <p>Tomas foi criado para trazer inteligência para o antigo conceido de tomadas. Descubra o poder de Tomas</p>
+  <div class="container text-center secao">
+    <h1>O poder da tomada reinventado</h1><br/>
+    <p>Tomas foi criado para trazer inteligência para o antigo conceido de tomadas.</p>
+    <p>Descubra o poder de Tomas, uma tomada inteligente por um preço que você pode pagar</p>
   </div>
-  <div class="container-fluid secaoVermelha">
+
+  <div class="container-fluid text-center secao">
     <div class="container">
-      <h1>Por um lorem mais ipsum</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h1>Agiliza sua vida</h1><br/>
+      <p>Programe o horário de funcionamento de todos os seus equipamentos em sua casa ou negócio</p>
     </div>
   </div>
-  <div class="container-fluid secaoCreme">
-    <div class="container">
-      <h1>Por um ipsum mais Lorem</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
+
+  <div class="container text-center secao">
+    <h1>Economia</h1><br/>
+    <p>Tomas te ajuda a saber onde você pode economizar energia em sua casa ou negócio.</p><p> Gráficos mostram o consumo de energia em todas as tomadas inteligentes</p>
   </div>
-  <div class="container-fluid secaoEscura">
+
+  <div class="container-fluid text-center secao secaoEscura">
     <div class="container">
-      <h1>Não se esqueça do dolor sit amet</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h1>Suporte</h1><br/>
+      <p>Nosso incrível suporte premium dura três meses, mas você pode comprar suporte adicional</p>
     </div>
   </div>
 

@@ -2,3 +2,7 @@
 background-repeat: no-repeat;  background-size: cover;
 background-attachment: fixed;/*-webkit-filter: blur(4px); filter:blur(4px);*/
 }
+.secao{
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
