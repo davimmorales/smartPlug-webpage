@@ -27,8 +27,8 @@
 <body>
 
   <?php
-    include 'layout/navbar.php';
-    include 'layout/storenav.php';
+  include 'layout/navbar.php';
+  include 'layout/storenav.php';
   ?>
 
 
@@ -43,40 +43,52 @@
         <img class="img-responsive" src="img/gambis.jpg" alt="Uma gambiarra" />
       </div>
       <div class="col-md-6">
-        <h2>Como gostaria de receber a sua tomada?</h1><br/>
-        <div class="row">
-          <div class="col-sm-6 text-center"><img class ="opcoes"src="img/baseContorno.svg"/><br/>Com base</div>
-          <div class="col-sm-6 text-center"><img class="opcoes" src="img/tomadaContorno.svg"/><br/>Sem base*</div>
-        </div>
-        <h2>Selecione quantas tomadas você deseja comprar</h1>
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-              <span class="glyphicon glyphicon-minus"></span>
-            </button>
-          </span>
-          <input type="text" name="quant[1]" class="form-control input-number" value="0" min="0" max="10">
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-              <span class="glyphicon glyphicon-plus"></span>
-            </button>
-          </span>
-        </div>
+        <h2>O que você gostaria de comprar hoje?</h1><br/>
+          <div class="row">
+            <div class="col-sm-6 text-center"><img class ="opcoes"src="img/baseContorno.svg"/><br/>Base<br/><br/>
+              <form method='post' action='https://www.moip.com.br/Process.do'>
+                <input type='hidden' name='method' value='shoppingcart'/>
+                <input type='hidden' name='value' value='srZ4pdQD6N8dRoPMlvrvkA=='/>
+                <input type='hidden' name='type' value='1'/>
+                <input type='image' name='submit' src='https://static.moip.com.br/imgs/buttons/bt_adicionar_c08_e02.gif' alt='Base Tomas' border='0' />
+              </form>
 
-        <br/>
-        <p><i>* Para que a tomada funcione, é necessário pelo menos uma base</i></p>
+            </div>
+            <div class="col-sm-6 text-center">
+              <img class="opcoes" src="img/tomadaContorno.svg"/><br/>Tomada*<br/><br/>
+              <form method='post' action='https://www.moip.com.br/Process.do'>
+                <input type='hidden' name='method' value='shoppingcart'/>
+                <input type='hidden' name='value' value='BRfADGAsoik1rr3O3SNTpg=='/>
+                <input type='hidden' name='type' value='1'/>
+                <input type='image' name='submit' src='https://static.moip.com.br/imgs/buttons/bt_adicionar_c08_e02.gif' alt='Tomada Inteligente Tomas' border='0' />
+              </form>
+
+
+            </div>
+          </div>
+          <h2>Aproveite e leve também o nosso incrível suporte premium</h2><br/>
+            <center>
+              <form method='post' action='https://www.moip.com.br/Process.do'>
+                <input type='hidden' name='method' value='shoppingcart'/>
+                <input type='hidden' name='value' value='zwGl1V5db7hJhNMuLouXEw=='/>
+                <input type='hidden' name='type' value='1'/>
+                <input type='image' name='submit' src='https://static.moip.com.br/imgs/buttons/bt_adicionar_c08_e04.png' alt='Suporte Extendido 12 meses' border='0' />
+              </form>
+            </center>
+            <br/>
+            <p><i>* Para que a tomada funcione, é necessário pelo menos uma base</i></p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
 
 
 
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/controlador.js"></script>
-</body>
-</html>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/controlador.js"></script>
+    </body>
+    </html>
