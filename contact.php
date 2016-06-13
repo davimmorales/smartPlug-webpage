@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,28 +25,10 @@
     <p>Será um prazer ajudá-lo.</p>
 
   </div>
-  <?php
-
-    if($_POST[submitInput]){
-
-  $name = $_POST['nameInput'];
-  $email= $_POST['emailInput'];
-  $message = $_POST['msgInput'];
-
-  $toaddress = "davimmorales@gmail.com";
-  $subject = "PHP teste";
-  $mailcontent = "Nome do cliente: ".$name."\n".
-           "Email do cliente: ".$email."\n".
-           "Mensagem: ".$message."\n";
-  // $fromaddress = "From: webserver@example.com";
-  mail($toaddress, $subject, $mailcontent);//, $fromaddress);
-
-}
-   ?>
 
   <div class="container">
     <div class=" row">
-      <form method='post'>
+      <form>
           <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" name="nameInput" id="nameID" class="form-control" placeholder="Primeiro e Último">
@@ -64,7 +46,20 @@
           </div>
           <input type="submit" name="submitInput" class="btn btn-cinza" value="Enviar"></input>
       </form>
+      <?php
+        $name = $_POST['nameInput'];
+        $email= $_POST['emailInput'];
+        $message = $_POST['msgInput'];
 
+        $toaddress = "davimmorales@gmail.com";
+        $subject = "PHP teste";
+        $mailcontent = "Nome do cliente: ".$name."\n".
+                       "Email do cliente: ".$email."\n".
+                       "Mensagem: ".$message."\n";
+        // $fromaddress = "From: webserver@example.com";
+        if(submitInput)
+          mail($toaddress, $subject, $mailcontent);//, $fromaddress);
+       ?>
     </div>
   </div>
 
