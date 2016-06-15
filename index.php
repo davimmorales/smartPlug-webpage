@@ -23,12 +23,23 @@
 <body>
   <?php  include 'layout/navbar.php'; ?>
 
-
-  <div class="jumbotron">
-    <div class="container">
-
-    </div>
+  <div style="background-color:white;padding-bottom: 50px;padding-top:50px; margin-top: -20px;">
+    <center>
+      <h1 style="font-size:6em;font-family: 'Shadows Into Light Two', cursive;">Tomas<br/></h1>
+    </center>
+    <center>
+      <h1><small style="font-size:0.8em;">Sua tomada que pensa</small></h1>
+    </center>
   </div>
+
+
+
+  <center style="background-color:white;padding-bottom: 50px; ">
+    <!--Trocar por Render-->
+    <img  src="img/energia-189832.jpg" class="img-responsive banner"/>
+  </center>
+
+
 
   <div class="container text-center secao">
     <h1>O poder da tomada reinventado</h1><br/>

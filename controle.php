@@ -69,7 +69,7 @@ function estado($tomada, $modo){
                 </td>
                 <td>Configurar
                 </td>
-                <td>Selecionar
+                <td>Excluir
                 </td>
               </tr>
               <tr>
@@ -100,8 +100,7 @@ function estado($tomada, $modo){
                   </div>
 
                 </td>
-                <td><div class="checkbox">
-                  <input type="checkbox" name="t0sel"></div>
+                <td><a class="btn btn-cinza"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
               </tr>
               <tr>
@@ -132,8 +131,7 @@ function estado($tomada, $modo){
                   </div>
 
                 </td>
-                <td><div class="checkbox">
-                  <input type="checkbox" name="t1sel"></div>
+                <td><a class="btn btn-cinza"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
               </tr>
               <tr>
@@ -164,8 +162,7 @@ function estado($tomada, $modo){
                   </div>
 
                 </td>
-                <td><div class="checkbox">
-                  <input type="checkbox" name="t3sel"></div>
+                <td><a class="btn btn-cinza"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
               </tr>
             </table>
