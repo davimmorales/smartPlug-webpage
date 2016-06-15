@@ -376,7 +376,7 @@ session_start();
                           <input type="submit" name="check_list[<?php echo $i; ?>]" class="btn btn-cinza"  value=<?php echo $statusValue[$i] ?> >
                         </form>
                       </td>
-                      <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></button>
+                      <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="<?php print "#Modal".$i;?>"></span></button>
 
 
                       </td>
@@ -388,7 +388,7 @@ session_start();
 
                     </tr>
                     <!--Modal -->
-                    <div class="modal fade" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal fade" id="<?php print "#Modal".$i;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
