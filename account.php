@@ -138,10 +138,10 @@ session_start();
 
 <!-- Login -->
 <?php     if(!$_SESSION["includeLogin"]){ ?>
-  <div class="container">
+  <center><div class="container">
     <h1>Minha Conta</h1>
     <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
-  </div>
+  </div></center>
   <div class="container">
     <div class=" row">
       <div class="col-md-6">
@@ -202,10 +202,10 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
 
 </div>
 
-<div class="container">
+<center><div class="container">
   <h1>Minha Conta</h1>
   <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
-</div>
+</div></center>
 
 <div class="container">
   <div class="row" style="margin-top:50px;">
@@ -293,24 +293,7 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
             </td>
             <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></button>
 
-              <!--Modal -->
-              <div class="modal fade" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Tomada 1</h4>
-                    </div>
-                    <div class="modal-body">
-                      Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-cinza">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </td>
             <td>
               <form action="account.php" method='post'>
@@ -319,6 +302,24 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
             </td>
 
           </tr>
+          <!--Modal -->
+          <div class="modal fade" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Tomada 1</h4>
+                </div>
+                <div class="modal-body">
+                  Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-cinza">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <?php }
           for ($j=0; $j < $counter; $j++) {
             if($_POST[check_list][$j]){
@@ -354,7 +355,7 @@ print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
                <div class="modal-content">
                  <div class="modal-header">
                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                   <h4 class="modal-title" id="myModalLabel">Excluir</h4>
+                   <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-trash"></span></h4>
                  </div>
                  <div class="modal-body">
                    Você tem certeza de que deseja excluir a tomada <?php echo $_SESSION['deleteElement']+1; ?>?
