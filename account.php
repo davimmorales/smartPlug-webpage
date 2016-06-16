@@ -20,13 +20,15 @@ session_start();
 
   <!--CSS-->
   <link href="css/comum.css" rel="stylesheet">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link href="css/account.css" rel="stylesheet"/>
+
   <!--RECAPTCHA-->
   <!--script src='https://www.google.com/recaptcha/api.js'></script-->
 
 
 
   <!-- Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
 
   // Load Charts and the corechart package.
@@ -43,6 +45,9 @@ session_start();
 
   //Draw the line chart for daily usage
   google.charts.setOnLoadCallback(drawDailyChart);
+
+  //Draw the line chart for Graph4 usage
+  google.charts.setOnLoadCallback(drawGraph4);
 
   // Callback that draws the pie chart for Sarah's pizza.
   function drawSarahChart() {
@@ -63,7 +68,7 @@ session_start();
     height:200};
 
     // Instantiate and draw the chart for Sarah's pizza.
-    var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
+    var chart = new google.visualization.PieChart(document.getElementById('Graph1'));
     chart.draw(data, options);
   }
 
@@ -88,7 +93,7 @@ session_start();
     height:200};
 
     // Instantiate and draw the chart for Anthony's pizza.
-    var chart = new google.visualization.ColumnChart(document.getElementById('Anthony_chart_div'));
+    var chart = new google.visualization.ColumnChart(document.getElementById('Graph2'));
     chart.draw(data, options);
   }
 
@@ -118,15 +123,37 @@ session_start();
     ]);
 
     var options = {
-      chart: {
-        title: 'Uso diario'
-      },
-      width: 500,
-      height: 200
-    };
+          title: 'Consumo ao longo do ano',
+          vAxis: {title: 'Consumo de energia'},
+          width:300,
+          height:200,
+          isStacked: true
+        };
     //Instantiate graph
-    var chart = new google.visualization.LineChart(document.getElementById('Daily'));
+    var chart = new google.visualization.SteppedAreaChart(document.getElementById('Graph3'));
 
+    chart.draw(data, options);
+  }
+
+  function drawGraph4() {
+
+    // Create the data table for Sarah's pizza.
+    var data = google.visualization.arrayToDataTable([
+          ['Hour', 'TV da Sala', 'TV do Quarto'],
+          ['0:00',  1000,      400],
+          ['08:00',  1170,      460],
+          ['12:00',  660,       1120],
+          ['20:00',  1030,      540]
+        ]);
+
+
+    // Set options for Sarah's pie chart.
+    var options = {title:'Uso por hora',
+    width:300,
+    height:200};
+
+    // Instantiate and draw the chart for Sarah's pizza.
+    var chart = new google.visualization.AreaChart(document.getElementById('Graph4'));
     chart.draw(data, options);
   }
 

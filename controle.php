@@ -171,13 +171,14 @@ function estado($tomada, $modo){
 
       </div>
       <div class="col-md-7" >
-        <div class="container-fluid">
-          <div class="col-md-6"><center><div  id="Sarah_chart_div"></div><center></div>
-            <div class="col-md-6"><center><div id="Daily"></div></center></div>
-          </div>
-          <div class="container-fluid">
-            <div class="col-md-6"><center><div id="Anthony_chart_div"></div></center></div>
-            <div class="container-fluid">
-            </div>
-          </div>
+        <div class="row">
+          <div class="col-md-6 chartArea"><div  id="Graph1"></div></div>
+          <div class="col-md-6 chartArea"><div id="Graph3"></div></div>
         </div>
+        <div class="row">
+          <div class="col-md-6 chartArea"><div id="Graph2"></div></div>
+          <div class="col-md-6 chartArea"><div id="Graph4"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
