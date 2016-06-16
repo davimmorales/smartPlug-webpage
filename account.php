@@ -359,14 +359,16 @@ session_start();
   <!-- Controle -->
   <?php     if($_SESSION["includeControle"]){ ?>
     <div class="infoSecao text-right container-fluid">
-      <p>Bem vindo, <span class="atencaoCreme">
-        <?php
-        print  $_SESSION["nome"];// $_SESSION["nome"]."\n";
-        ?></span>! <form action="account.php" method="post">
+      <form action="account.php" method="post">
+        <p>Bem vindo, <span class="atencaoCreme">
+          <?php
+          print  $_SESSION["nome"];
+          ?></span>!  
           <input type="submit" name="logout" class="btn btn-cinza" value="Sair"/>
-        </form> <!--(<a href="logout.php">Sair</a>) --></p>
+        </p>
+      </form>
 
-      </div>
+    </div>
 
       <center class="NomePage">
         <h1>Minha Conta</h1>
@@ -544,7 +546,7 @@ session_start();
                 </div>
 
               </div>
-              
+
               <div class="col-md-7  regioes" >
                 <div class="row">
                   <div class="col-sm-6 "><center><div  class="chartArea" id="Graph1"></div></center></div>
