@@ -25,8 +25,8 @@ function estado($tomada, $modo){
   </center>
 
   <div class="container-fluid">
-    <div class="row" style="margin-top:80px;">
-      <div class="col-md-4" >
+    <div class="row" style="margin-top:85px;">
+      <div class="col-md-5" >
 
         <div class="panel panel-default">
           <!-- Default panel contents -->
@@ -58,8 +58,8 @@ function estado($tomada, $modo){
           </div>
 
           <!-- Table -->
-          <div class="table-responsive">
-            <table class="text-center table">
+          <div class="table-responsive text-center">
+            <table class=" table">
               <tr>
                 <td>Nº
                 </td>
@@ -170,7 +170,7 @@ function estado($tomada, $modo){
         </div>
 
       </div>
-      <div class="col-md-8" >
+      <div class="col-md-7" >
         <div class="container-fluid">
           <div class="col-md-6"><center><div  id="Sarah_chart_div"></div><center></div>
             <div class="col-md-6"><center><div id="Daily"></div></center></div>

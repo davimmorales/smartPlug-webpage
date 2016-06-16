@@ -59,8 +59,8 @@ session_start();
 
     // Set options for Sarah's pie chart.
     var options = {title:'Aparelhos de maior uso',
-    width:400,
-    height:300};
+    width:300,
+    height:200};
 
     // Instantiate and draw the chart for Sarah's pizza.
     var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
@@ -84,8 +84,8 @@ session_start();
 
     // Set options for Anthony's pie chart.
     var options = {title:'Uso por aparelho',
-    width:400,
-    height:250};
+    width:300,
+    height:200};
 
     // Instantiate and draw the chart for Anthony's pizza.
     var chart = new google.visualization.ColumnChart(document.getElementById('Anthony_chart_div'));
@@ -121,8 +121,8 @@ session_start();
       chart: {
         title: 'Uso diario'
       },
-      width: 400,
-      height: 250
+      width: 500,
+      height: 200
     };
     //Instantiate graph
     var chart = new google.visualization.LineChart(document.getElementById('Daily'));
