@@ -60,8 +60,16 @@ session_start();
 
     // Set options for Sarah's pie chart.
     var options = {title:'Aparelhos de maior uso',
-    width:300,
-    height:200};
+    width:290,
+    height:200,
+    backgroundColor: '#FCFBD7',
+    chartArea: {
+      backgroundColor: '#FCFBD7'
+    },
+    legend: {
+      position: 'top'
+    }
+  };
 
     // Instantiate and draw the chart for Sarah's pizza.
     var chart = new google.visualization.PieChart(document.getElementById('Graph1'));
@@ -85,8 +93,16 @@ session_start();
 
     // Set options for Anthony's pie chart.
     var options = {title:'Uso por aparelho',
-    width:300,
-    height:200};
+    width:290,
+    height:200,
+    backgroundColor: '#FCFBD7',
+    chartArea: {
+      backgroundColor: '#FCFBD7'
+    },
+    legend: {
+      position: 'top'
+    }
+  };
 
     // Instantiate and draw the chart for Anthony's pizza.
     var chart = new google.visualization.ColumnChart(document.getElementById('Graph2'));
@@ -121,9 +137,16 @@ session_start();
     var options = {
           title: 'Consumo ao longo do ano',
           vAxis: {title: 'Consumo de energia'},
-          width:300,
+          width:290,
           height:200,
-          isStacked: true
+          isStacked: true,
+          backgroundColor: '#FCFBD7',
+          chartArea: {
+            backgroundColor: '#FCFBD7'
+          },
+          legend: {
+            position: 'top'
+          }
         };
     //Instantiate graph
     var chart = new google.visualization.SteppedAreaChart(document.getElementById('Graph3'));
@@ -145,8 +168,16 @@ session_start();
 
     // Set options for Sarah's pie chart.
     var options = {title:'Uso por hora',
-    width:300,
-    height:200};
+    width:290,
+    height:200,
+    backgroundColor: '#FCFBD7',
+    chartArea: {
+      backgroundColor: '#FCFBD7'
+    },
+    legend: {
+      position: 'top'
+    }
+  };
 
     // Instantiate and draw the chart for Sarah's pizza.
     var chart = new google.visualization.AreaChart(document.getElementById('Graph4'));
@@ -273,10 +304,10 @@ session_start();
 
   <!-- Login -->
   <?php     if(!$_SESSION["includeLogin"]){ ?>
-    <center><div class="container">
+    <center class="NomePage">
       <h1>Minha Conta</h1>
       <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
-    </div></center>
+  </center>
     <div class="container">
       <div class=" row">
         <div class="col-md-6">
@@ -337,14 +368,14 @@ session_start();
 
       </div>
 
-      <center><div class="container-fluid text-center">
+      <center class="NomePage">
         <h1>Minha Conta</h1>
         <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
-      </div></center>
+      </center>
 
-      <div class="container-fluid">
-        <div class="row" style="margin-top:50px;">
-          <div class="col-md-5" >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5  regioes" >
 
             <div class="panel panel-default">
               <!-- Default panel contents -->
@@ -385,7 +416,7 @@ session_start();
                     </td>
                     <td>Estado
                     </td>
-                    <td>Configurar
+                    <td>Programar
                     </td>
                     <td>Excluir
                     </td>
@@ -513,18 +544,20 @@ session_start();
                 </div>
 
               </div>
-              <div class="col-md-7" >
+              
+              <div class="col-md-7  regioes" >
                 <div class="row">
-                  <div class="col-sm-6 chartArea"><div  id="Graph1"></div></div>
-                  <div class="col-sm-6 chartArea"><div id="Graph3"></div></div>
+                  <div class="col-sm-6 "><center><div  class="chartArea" id="Graph1"></div></center></div>
+                  <div class="col-sm-6 "><center><div class="chartArea"  id="Graph3"></div></center></div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-6 chartArea"><div id="Graph2"></div></div>
-                  <div class="col-sm-6 chartArea"><div id="Graph4"></div></div>
+                  <div class="col-sm-6 "><center><div class="chartArea"  id="Graph2"></div></center></div>
+                  <div class="col-sm-6 "><center><div class="chartArea"  id="Graph4"></div></center></div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
             <?php     } ?>
 

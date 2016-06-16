@@ -1,5 +1,12 @@
 .chartArea{
-  max-width:320px;
+  max-width:420px;
   height: auto;
-  padding-bottom: 20px;
+  margin-bottom: 100px;
+  /*background-color: #FCFBD7;*/
+}
+.regioes{
+  margin-top:85px;
+}
+.NomePage{
+  margin-top: 50px;
 }
