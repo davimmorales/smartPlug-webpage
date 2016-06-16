@@ -280,10 +280,10 @@ session_start();
     <div class="infoSecao text-right container-fluid">
       <p>Bem vindo, <span class="atencaoCreme">
         <?php
-        print  $_SESSION["nome"]."\n";// $_SESSION["nome"]."\n";
+        print  $_SESSION["nome"];// $_SESSION["nome"]."\n";
         ?></span>! <form action="account.php" method="post">
-          <input type="submit" name="logout" class="btn btn-cinza" value="Sair">
-        </form> <!--(<a href="logout.php">Sair</a>) -->
+          <input type="submit" name="logout" class="btn btn-cinza" value="Sair"/>
+        </form> <!--(<a href="logout.php">Sair</a>) --></p>
 
       </div>
 
@@ -377,7 +377,7 @@ session_start();
                           <input type="submit" name="check_list[<?php echo $i; ?>]" class="btn <?php  cor($statusValue[$i]); ?>"  value=<?php echo $statusValue[$i] ?> >
                         </form>
                       </td>
-                      <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="<?php print "#Modal".$i;?>"></span></button>
+                      <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="<?php echo '#Modal'.$i;?>"></span></button>
 
 
                       </td>
@@ -389,23 +389,25 @@ session_start();
 
                       </tr>
                       <!--Modal -->
-                      <div class="modal fade" id="<?php print "#Modal".$i;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                              <h4 class="modal-title" id="myModalLabel">Tomada 1</h4>
+                      <?php $textmodal="<div class='modal fade' id='#Modal".$i."' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>
+                        <div class='modal-dialog' role='document'>
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                              <h4 class='modal-title' id='myModalLabel'>Tomada 1</h4>
                             </div>
-                            <div class="modal-body">
+                            <div class='modal-body'>
                               Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-cinza">Save changes</button>
+                            <div class='modal-footer'>
+                              <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                              <button type='button' class='btn btn-cinza'>Save changes</button>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div>";
+                      echo $textmodal;
+                      ?>
                       <?php }
                       for ($j=0; $j < $counter; $j++) {
                         if($_POST[check_list][$j]){
