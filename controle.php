@@ -24,7 +24,7 @@ function estado($tomada, $modo){
     <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
   </center>
 
-  <div class="container-fluid">
+  <div class="container">
     <div class="row" >
       <div class="col-md-5" >
 
@@ -170,7 +170,7 @@ function estado($tomada, $modo){
         </div>
 
       </div>
-      <div class="col-md-6 regioes" >
+      <div class="col-md-7  regioes" >
         <div class="row">
           <div class="col-sm-6 "><center><div  class="chartArea" id="Graph1"></div></center></div>
           <div class="col-sm-6 "><center><div class="chartArea"  id="Graph3"></div></center></div>
