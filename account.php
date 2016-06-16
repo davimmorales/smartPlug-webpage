@@ -515,12 +515,12 @@ session_start();
               </div>
               <div class="col-md-7" >
                 <div class="row">
-                  <div class="col-md-6 chartArea"><div  id="Graph1"></div></div>
-                  <div class="col-md-6 chartArea"><div id="Graph3"></div></div>
+                  <div class="col-sm-6 chartArea"><div  id="Graph1"></div></div>
+                  <div class="col-sm-6 chartArea"><div id="Graph3"></div></div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 chartArea"><div id="Graph2"></div></div>
-                  <div class="col-md-6 chartArea"><div id="Graph4"></div></div>
+                  <div class="col-sm-6 chartArea"><div id="Graph2"></div></div>
+                  <div class="col-sm-6 chartArea"><div id="Graph4"></div></div>
                 </div>
               </div>
             </div>
