@@ -363,7 +363,7 @@ session_start();
         <p>Bem vindo, <span class="atencaoCreme">
           <?php
           print  $_SESSION["nome"];
-          ?></span>!  
+          ?></span>!
           <input type="submit" name="logout" class="btn btn-cinza" value="Sair"/>
         </p>
       </form>
