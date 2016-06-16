@@ -64,8 +64,16 @@ session_start();
 
     // Set options for Sarah's pie chart.
     var options = {title:'Aparelhos de maior uso',
-    width:300,
-    height:200};
+    width:290,
+    height:200,
+    backgroundColor: '#FCFBD7',
+    chartArea: {
+      backgroundColor: '#FCFBD7'
+    },
+    legend: {
+      position: 'top'
+    }
+  };
 
     // Instantiate and draw the chart for Sarah's pizza.
     var chart = new google.visualization.PieChart(document.getElementById('Graph1'));
@@ -89,8 +97,16 @@ session_start();
 
     // Set options for Anthony's pie chart.
     var options = {title:'Uso por aparelho',
-    width:300,
-    height:200};
+    width:290,
+    height:200,
+    backgroundColor: '#FCFBD7',
+    chartArea: {
+      backgroundColor: '#FCFBD7'
+    },
+    legend: {
+      position: 'top'
+    }
+  };
 
     // Instantiate and draw the chart for Anthony's pizza.
     var chart = new google.visualization.ColumnChart(document.getElementById('Graph2'));
@@ -125,9 +141,16 @@ session_start();
     var options = {
           title: 'Consumo ao longo do ano',
           vAxis: {title: 'Consumo de energia'},
-          width:300,
+          width:290,
           height:200,
-          isStacked: true
+          isStacked: true,
+          backgroundColor: '#FCFBD7',
+          chartArea: {
+            backgroundColor: '#FCFBD7'
+          },
+          legend: {
+            position: 'top'
+          }
         };
     //Instantiate graph
     var chart = new google.visualization.SteppedAreaChart(document.getElementById('Graph3'));
@@ -149,8 +172,16 @@ session_start();
 
     // Set options for Sarah's pie chart.
     var options = {title:'Uso por hora',
-    width:300,
-    height:200};
+    width:290,
+    height:200,
+    backgroundColor: '#FCFBD7',
+    chartArea: {
+      backgroundColor: '#FCFBD7'
+    },
+    legend: {
+      position: 'top'
+    }
+  };
 
     // Instantiate and draw the chart for Sarah's pizza.
     var chart = new google.visualization.AreaChart(document.getElementById('Graph4'));
