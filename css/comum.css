@@ -32,6 +32,9 @@ body{
 .btn-cinza:visited{
   color:#FCFBD7;
 }
+.btn-cinza:active{
+  color:#FCFBD7;
+}
 .secaoVermelha h1{
   color:#E4C886
 }

@@ -125,19 +125,20 @@ session_start();
   ?>
 
   <?php
-  function estado($tomada){
-    switch($statusValue[$tomada]){
+  function cor($estado){
+    switch($estado){
       case "on":
-        print "btn-success";
-        break;
+      print "btn-success";
+      break;
       case "off":
-        print "btn-danger";
-        break;
+      print "btn-danger";
+      break;
       case "changed":
-        print "btn-warning";
-        break;
+      print "btn-warning";
+      break;
       default:
-        print "btn-cinza";
+      print "btn-cinza";
+      break;
     }
   }
 
@@ -373,7 +374,7 @@ session_start();
                       </td>
                       <td>
                         <form action='account.php' method='post'>
-                          <input type="submit" name="check_list[<?php echo $i; ?>]" class="btn btn-cinza"  value=<?php echo $statusValue[$i] ?> >
+                          <input type="submit" name="check_list[<?php echo $i; ?>]" class="btn <?php  cor($statusValue[$i]); ?>"  value=<?php echo $statusValue[$i] ?> >
                         </form>
                       </td>
                       <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="<?php print "#Modal".$i;?>"></span></button>
@@ -382,113 +383,113 @@ session_start();
                       </td>
                       <td>
                         <form action="account.php" method='post'>
-                          <input type="submit" name="deleteOne[<?php echo $i; ?>]" class="btn <?php estado($i); ?>" value="Excluir" />
-                        </form>
-                      </td>
+                          <button type="submit" value="Enviar" name="deleteOne[<?php echo $i; ?>]" class="btn btn-cinza" ><span class="glyphicon glyphicon-trash"></span</input>
+                          </form>
+                        </td>
 
-                    </tr>
-                    <!--Modal -->
-                    <div class="modal fade" id="<?php print "#Modal".$i;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Tomada 1</h4>
-                          </div>
-                          <div class="modal-body">
-                            Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-cinza">Save changes</button>
+                      </tr>
+                      <!--Modal -->
+                      <div class="modal fade" id="<?php print "#Modal".$i;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">Tomada 1</h4>
+                            </div>
+                            <div class="modal-body">
+                              Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-cinza">Save changes</button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <?php }
-                    for ($j=0; $j < $counter; $j++) {
-                      if($_POST[check_list][$j]){
-                        if($devicesArray[$j]['status']==1){
-                          header('Location: account.php');
-                          $deviceID = $devicesArray[$j]['id'];
-                          $conexao->query("UPDATE tomadas SET status=0 WHERE id=$deviceID");
-                          // $statusValue[$j]= "off";
+                      <?php }
+                      for ($j=0; $j < $counter; $j++) {
+                        if($_POST[check_list][$j]){
+                          if($devicesArray[$j]['status']==1){
+                            header('Location: account.php');
+                            $deviceID = $devicesArray[$j]['id'];
+                            $conexao->query("UPDATE tomadas SET status=0 WHERE id=$deviceID");
+                            // $statusValue[$j]= "off";
+                          }
+                          else if($devicesArray[$j]['status']==0) {
+                            $deviceID = $devicesArray[$j]['id'];
+                            $conexao->query("UPDATE tomadas SET status=1 WHERE id=$deviceID");
+                            // $statusValue[$j]= "on";
+                          }
                         }
-                        else if($devicesArray[$j]['status']==0) {
+                        else if($_POST[deleteOne][$j]){
+                          $_SESSION['deleteElement'] = $j;
+                          $showDelete_modal = true;
+                        }
+                        elseif ($_POST[deleteTwo][$j]) {
                           $deviceID = $devicesArray[$j]['id'];
-                          $conexao->query("UPDATE tomadas SET status=1 WHERE id=$deviceID");
-                          // $statusValue[$j]= "on";
+                          $deviceName = $devicesArray[$j]['nome'];
+                          $conexao->query("DELETE FROM tomadas where id=$deviceID");
+                          echo "Tomada '".$deviceName."' excluída com sucesso";
                         }
                       }
-                      else if($_POST[deleteOne][$j]){
-                        $_SESSION['deleteElement'] = $j;
-                        $showDelete_modal = true;
-                      }
-                      elseif ($_POST[deleteTwo][$j]) {
-                        $deviceID = $devicesArray[$j]['id'];
-                        $deviceName = $devicesArray[$j]['nome'];
-                        $conexao->query("DELETE FROM tomadas where id=$deviceID");
-                        echo "Tomada '".$deviceName."' excluída com sucesso";
-                      }
-                    }
 
 
-                    ?>
+                      ?>
 
-                    <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-trash"></span></h4>
-                          </div>
-                          <div class="modal-body">
-                            Você tem certeza de que deseja excluir a tomada <?php echo $_SESSION['deleteElement']+1; ?>?
-                          </div>
-                          <div class="modal-footer">
-                            <form action="account.php" method='post'>
-                              <input type="submit" name="deleteTwo[<?php echo $_SESSION['deleteElement']; ?>]" class="btn btn-cinza" value="Sim" />
-                            </form>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                      <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">Excluir</h4>
+                            </div>
+                            <div class="modal-body">
+                              Você tem certeza de que deseja excluir a tomada <?php echo $_SESSION['deleteElement']+1; ?>?
+                            </div>
+                            <div class="modal-footer">
+                              <form action="account.php" method='post'>
+                                <input type="submit" name="deleteTwo[<?php echo $_SESSION['deleteElement']; ?>]" class="btn btn-cinza" value="Sim" />
+                              </form>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                  </table>
+                    </table>
+                  </div>
                 </div>
+
               </div>
-
-            </div>
-            <div class="col-md-7" >
-              <div class="container-fluid">
-                <div class="col-md-6"><center><div  id="Graph1"></div><center></div>
-                  <div class="col-md-6"><center><div id="Graph3"></div></center></div>
-                </div>
+              <div class="col-md-7" >
                 <div class="container-fluid">
-                  <div class="col-md-6"><center><div id="Graph2"></div></center></div>
+                  <div class="col-md-6"><center><div  id='Graph1'></div><center></div>
+                    <div class="col-md-6"><center><div id='Graph2'></div></center></div>
+                  </div>
                   <div class="container-fluid">
+                    <div class="col-md-6"><center><div id='Graph3'></div></center></div>
+                    <div class="container-fluid">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <?php     } ?>
+            <?php     } ?>
 
 
 
 
 
 
-          <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-          <!-- Include all compiled plugins (below), or include individual files as needed -->
-          <script src="js/bootstrap.min.js"></script>
-          <?php if($show_modal):?>
-            <script> $('#ModalW1').modal('show');</script>
-          <?php endif;?>
-          <?php if($showDelete_modal):?>
-            <script> $('#ModalDelete').modal('show');</script>
-          <?php endif;?>
-        </body>
-        </html>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="js/bootstrap.min.js"></script>
+            <?php if($show_modal):?>
+              <script> $('#ModalW1').modal('show');</script>
+            <?php endif;?>
+            <?php if($showDelete_modal):?>
+              <script> $('#ModalDelete').modal('show');</script>
+            <?php endif;?>
+          </body>
+          </html>
