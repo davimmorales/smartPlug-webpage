@@ -67,6 +67,10 @@
     <p>Tomas te ajuda a saber onde você pode economizar energia em sua casa ou negócio.</p><p> Gráficos mostram o consumo de energia em todas as tomadas inteligentes</p>
   </div>
 
+  <center style="margin-bottom:85px;">
+    <img src="img/graficos.gif" class="img-responsive" />
+  </center>
+
   <div class="container-fluid text-center secao secaoEscura">
     <div class="container">
       <h1>Suporte</h1><br/>
