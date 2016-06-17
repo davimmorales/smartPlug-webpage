@@ -33,11 +33,11 @@ function estado($tomada, $modo){
           <div class="panel-heading" style="color:white;">
 
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-xs-3">
                 <button class="bc btn-cinza"><span class="glyphicon glyphicon-option-vertical" data-toggle="modal" data-target="#ModalMenu"> </span></button>
               </div>
               <div class="col-xs-4 text-center"><b>Seus Dispositivos</b></div>
-              <div class="col-xs-4 text-right">
+              <div class="col-xs-5 text-right">
                 <button class="bc btn-cinza"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#ModalAdicionarTomada"> </span></button>
                 <button class="bc btn-cinza"><span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#ModalRemove"> </span></button>
                 <button class="bc btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></button>
