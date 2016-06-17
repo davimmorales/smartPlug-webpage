@@ -49,28 +49,7 @@ function estado($tomada, $modo){
 
 
 
-          <!-- Modal Add-->
-          <div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Adicionar Novo Dispositivo</h4>
-                </div>
-                <div class="modal-body">
-                  <form action="autenticacao.php" method:"post">
-                    <input type="text" name="nomeTomada" class="form-control" placeholder="nome"><br/>
-                    <input type="text" name="cSerie" class="form-control" placeholder="Código de Série"><br/>
-                    <input type="submit" value="Adicionar Dispositivo" name="submitNovaTomada" class="btn btn-cinza"/>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                  </form>
-                </div>
-                <!-- <div class="modal-footer"> -->
-                <!-- <button type="button" class="btn btn-cinza">Save changes</button> -->
-                <!-- </div> -->
-              </div>
-            </div>
-          </div>
+
 
           <!-- Table -->
           <div class="table-responsive text-center">
@@ -206,6 +185,40 @@ function estado($tomada, $modo){
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-cinza">Salvar</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Add-->
+<div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Adicionar Novo Dispositivo</h4>
+      </div>
+      <form action="autenticacao.php" method:"post">
+        <div class="modal-body">
+
+          <div class="form-group">
+
+
+            <input type="text" name="nomeTomada" class="form-control" placeholder="nome"><br/>
+            <input type="text" name="cSerie" class="form-control" placeholder="Código de Série"><br/>
+            <label for="sel1">Selecione a tensão em que a tomada trabalha</label><br/>
+            <select class="form-control" id="Volts">
+              <option class="text-center">110V</option>
+              <option class="text-center">220V</option>
+            </select><br/>
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <input type="submit" value="Adicionar Dispositivo" name="submitNovaTomada" class="btn btn-cinza"/>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
