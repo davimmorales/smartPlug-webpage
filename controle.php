@@ -177,7 +177,7 @@ function estado($tomada, $modo){
                 </select><br/>
                 <label for="dia">Selecione o dia</label><br/>
                 <input class="form-control selec" type="date" name="pday" id="dia"/><br/>
-                <label for="hora">Selecione o dia</label><br/>
+                <label for="hora">Selecione o horário</label><br/>
                 <input class="form-control selec"  type="time" name="usr_time" id="hora"><br/>
                 <button class="btn btn-cinza">Salvar</button>
               </div>
