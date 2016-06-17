@@ -19,7 +19,7 @@ function estado($tomada, $modo){
     }
   }
   ?>
-  <center class="NomePage">
+  <center class="NomePage ">
     <h1>Minha Conta</h1>
     <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
   </center>
@@ -30,10 +30,25 @@ function estado($tomada, $modo){
 
         <div class="panel panel-default regioes">
           <!-- Default panel contents -->
-          <div class="panel-heading text-center" style="color:#FCFBD7;">
-            <b>Seus Dispositivos</b>
-            <button class="btn btn-cinza"><span class="glyphicon glyphicon-plus"data-toggle="modal" data-target="#ModalAdicionarTomada"></span></button>
+          <div class="panel-heading" style="color:white;">
+
+            <div class="row">
+              <div class="col-xs-3">
+                <a class=" btn-cinza"><span class="glyphicon glyphicon-option-vertical" data-toggle="modal" data-target="#ModalMenu"> </span></a>
+              </div>
+              <div class="col-xs-6 text-center"><b>Seus Dispositivos</b></div>
+              <div class="col-xs-3 text-right">
+                <a class=" btn-cinza"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#ModalAdicionarTomada"> </span></a>
+                <a class=" btn-cinza"><span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#ModalRemove"> </span></a>
+                <a class=" btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></a>
+              </div>
+            </div>
+
           </div>
+
+
+
+
           <!-- Modal Add-->
           <div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -67,10 +82,6 @@ function estado($tomada, $modo){
                 </td>
                 <td>Estado
                 </td>
-                <td>Configurar
-                </td>
-                <td>Excluir
-                </td>
               </tr>
               <tr>
                 <td>1
@@ -78,29 +89,6 @@ function estado($tomada, $modo){
                 <td>TV da Sala
                 </td>
                 <td><a class="btn <?php estado("t0",1);?>" href="switch.php?ID=t0"><?php estado("t0",2)?></a>
-                </td>
-                <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></button>
-                  <!--Modal -->
-                  <div class="modal fade" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Tomada 1</h4>
-                        </div>
-                        <div class="modal-body">
-                          Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-cinza">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </td>
-                <td><a class="btn btn-cinza"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
               </tr>
               <tr>
@@ -110,29 +98,6 @@ function estado($tomada, $modo){
                 </td>
                 <td><a class="btn <?php estado("t1",1);?>" href="switch.php?ID=t1"><?php estado("t1",2)?></a>
                 </td>
-                <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT1"></span></button>
-                  <!--Modal -->
-                  <div class="modal fade" id="ModalT1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Tomada 2</h4>
-                        </div>
-                        <div class="modal-body">
-                          Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-cinza">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </td>
-                <td><a class="btn btn-cinza"><span class="glyphicon glyphicon-trash"></span></a>
-                </td>
               </tr>
               <tr>
                 <td>3
@@ -140,29 +105,6 @@ function estado($tomada, $modo){
                 <td>Aparelho super secreto
                 </td>
                 <td><a class="btn <?php estado("t2",1);?>" href="switch.php?ID=t2"><?php estado("t2",2)?></a>
-                </td>
-                <td><button class="btn btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT2"></span></button>
-                  <!--Modal -->
-                  <div class="modal fade" id="ModalT2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Tomada 3</h4>
-                        </div>
-                        <div class="modal-body">
-                          Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-cinza">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </td>
-                <td><a class="btn btn-cinza"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
               </tr>
             </table>
@@ -179,6 +121,90 @@ function estado($tomada, $modo){
           <div class="col-sm-6 "><center><div class="chartArea"  id="Graph2"></div></center></div>
           <div class="col-sm-6 "><center><div class="chartArea"  id="Graph4"></div></center></div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h2 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Remoção de tomadas!</h2></center>
+      </div>
+      <div class="modal-body">
+
+        <center>
+
+          <form role="form">
+            <div class="form-group">
+              <label for="sel1">Selecione a tomada a ser removida</label><br/>
+              <select class="form-control selec" id="sel1">
+                <option class="text-center">1: TV da Sala </option>
+                <option class="text-center">2: TV do Quarto </option>
+                <option class="text-center">3: Aparelho Super Secreto </option>
+              </select>
+            </div>
+          </form>
+        </center>
+
+      </div>
+      <div class="modal-footer">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="text-center"><strong>Cuidado! </strong></p>
+          <p class="text-center">Após a remoção a tomada não funcionará até ser readicionada!</p>
+          <p class="text-center"> Você tem certeza que quer removê-la?</p>
+        </div>
+        <br/>
+        <button type="button" class="btn btn-danger">Remover tomada</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Não remova!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Modal -->
+<div class="modal fade modal" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h2 class="modal-title" id="myModalLabel">Programação<br/><small>Aqui você programa o funcionamento da sua tomada</h2></center>
+      </div>
+      <div class="modal-body">
+        Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-cinza">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--Modal -->
+<div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você altera a exibição de gráficos</h2></center>
+      </div>
+      <div class="modal-body">
+        Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-cinza">Salvar</button>
       </div>
     </div>
   </div>
