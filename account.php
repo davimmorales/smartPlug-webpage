@@ -642,7 +642,6 @@ chart.draw(data, options);
 
 
 
-
       <!--Modal OPÇÕES -->
       <div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <form role="form">
@@ -650,22 +649,44 @@ chart.draw(data, options);
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você altera a exibição de gráficos</h2></center>
+                <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você encontra opções para gráficos<br/> e altera suas tomadas</h2></center>
                 </div>
                 <div class="modal-body">
                   <center>
                     <h4>Exportar</h4><br/>
                     <button class="btn btn-success disabled"> Excel</button>
                   </center>
+                  <hr/>
+                  <center>
+                    <h4>Alterar tomada</h4><br/>
+
+                    <label for="sel2">Selecione a tomada</label><br/>
+                    <select class="form-control" id="sel2">
+                      <option class="text-center">1: TV da Sala </option>
+                      <option class="text-center">2: TV do Quarto </option>
+                      <option class="text-center">3: Aparelho Super Secreto </option>
+                    </select><br/>
+                    <label for="Volts1">Selecione a tensão em que a tomada trabalha</label><br/>
+                    <select class="form-control" id="Volts1">
+                      <option class="text-center">110V</option>
+                      <option class="text-center">220V</option>
+                    </select><br/>
+                    <input type="text" name="nomeTomada" class="form-control" placeholder="Alterar nome"><br/>
+                    <input type="text" name="cSerie" class="form-control" placeholder="Alterar código de Série"><br/>
+
+
+                  </center>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-cinza">Salvar</button>
+                  <button type="submit" class="btn btn-cinza">Salvar</button>
                 </div>
               </div>
             </div>
           </form>
         </div>
+
+
 
         <!-- Modal ADICIONAR TOMADA-->
         <div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -703,7 +724,7 @@ chart.draw(data, options);
 
 
 
-        
+
 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
