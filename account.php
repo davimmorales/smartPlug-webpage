@@ -647,6 +647,7 @@ chart.draw(data, options);
       </div>
 
 
+      
 
       <!--Modal OPÇÕES -->
       <div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -679,18 +680,19 @@ chart.draw(data, options);
                     </select><br/>
                     <input type="text" name="nomeTomada" class="form-control" placeholder="Alterar nome"><br/>
                     <input type="text" name="cSerie" class="form-control" placeholder="Alterar código de Série"><br/>
-
+                    <button type="submit" class="btn btn-cinza">Salvar</button>
 
                   </center>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                  <button type="submit" class="btn btn-cinza">Salvar</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+
                 </div>
               </div>
             </div>
           </form>
         </div>
+
 
 
 
