@@ -150,41 +150,96 @@ function estado($tomada, $modo){
 
 <!--Modal PROGRAMAÇÃO -->
 <div class="modal fade modal" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <center><h2 class="modal-title" id="myModalLabel">Programação<br/><small>Aqui você programa o funcionamento da sua tomada</h2></center>
-      </div>
-      <div class="modal-body">
+  <form role="form">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <center><h2 class="modal-title" id="myModalLabel">Programação<br/><small>Aqui você programa o funcionamento da sua tomada</h2></center>
+          </div>
+          <div class="modal-body">
 
 
-        <center>
-          <h3 class="subreg">Nova programação</h3>
-          <form role="form">
-            <div class="form-group">
-              <label for="sel1">Selecione a tomada</label><br/>
-              <select class="form-control selec" id="sel1">
-                <option class="text-center">1: TV da Sala </option>
-                <option class="text-center">2: TV do Quarto </option>
-                <option class="text-center">3: Aparelho Super Secreto </option>
-              </select><br/>
-              <label for="dia">Selecione o dia</label><br/>
-               <input class="form-control selec" type="date" name="pday" id="dia"/><br/>
-               <label for="hora">Selecione o dia</label><br/>
-               <input class="form-control selec"  type="time" name="usr_time" id="hora"><br/>
-               <button class="btn btn-cinza">Salvar</button>
-            </div>
-          </form>
-        </center>
+            <center>
+              <h3 class="subreg">Nova programação</h3>
 
+              <div class="form-group">
+                <label for="acao">Selecione a ação</label><br/>
+                <select class="form-control selec" id="acao">
+                  <option class="text-center">Ligar</option>
+                  <option class="text-center">Desligar</option>
+                </select><br/>
+                <label for="sel1">Selecione a tomada</label><br/>
+                <select class="form-control selec" id="sel1">
+                  <option class="text-center">1: TV da Sala </option>
+                  <option class="text-center">2: TV do Quarto </option>
+                  <option class="text-center">3: Aparelho Super Secreto </option>
+                </select><br/>
+                <label for="dia">Selecione o dia</label><br/>
+                <input class="form-control selec" type="date" name="pday" id="dia"/><br/>
+                <label for="hora">Selecione o dia</label><br/>
+                <input class="form-control selec"  type="time" name="usr_time" id="hora"><br/>
+                <button class="btn btn-cinza">Salvar</button>
+              </div>
+
+            </center>
+            <hr/>
+            <center>
+              <h3 class="subreg">Programações</h3>
+
+              <table class="table programacao text-center">
+                <thead>
+                  <tr>
+                    <th>Ação</th>
+                    <th>Tomada</th>
+                    <th>Dia</th>
+                    <th>Horário</th>
+                    <th>Cancela</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="label label-success">Ligar</span></td>
+                    <td>1: TV da Sala</td>
+                    <td>26/12/2016</td>
+                    <td>18:00</td>
+                    <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="label label-danger">Desligar</span></td>
+                    <td>2: TV do Quarto</td>
+                    <td>27/12/2016</td>
+                    <td>00:00</td>
+                    <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="label label-success">Ligar</span></td>
+                    <td>3: Aparelho Super Secreto</td>
+                    <td>19/09/2016</td>
+                    <td>18:00</td>
+                    <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="label label-danger">Desligar</span></td>
+                    <td>3: Aparelho Super Secreto</td>
+                    <td>19/09/2016</td>
+                    <td>19:00</td>
+                    <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+            </center>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-      </div>
-    </div>
+    </form>
   </div>
-</div>
 
 
 
