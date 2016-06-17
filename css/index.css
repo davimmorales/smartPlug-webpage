@@ -1,8 +1,12 @@
-.jumbotron {  background: #fff url(../img/energia-189832.jpg) top;height: 380px;
-background-repeat: no-repeat;  background-size: cover;
-background-attachment: fixed;/*-webkit-filter: blur(4px); filter:blur(4px);*/
+body{
+  background-color: #f7f7f7;
 }
 .secao{
   padding-top: 85px;
   padding-bottom: 85px;
+}
+.banner{
+  width:980px;
+  height: 350px;
+
 }

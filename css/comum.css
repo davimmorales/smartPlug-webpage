@@ -1,6 +1,7 @@
 body{
   font-family: 'Quicksand', sans-serif;
   padding-top: 50px;
+
 }
 .nav_item{
   font-weight: bold;
@@ -35,6 +36,10 @@ body{
 .btn-cinza:active{
   color:#FCFBD7;
 }
+.btn-cinza:link{
+  color:#FCFBD7;
+}
+
 .secaoVermelha h1{
   color:#E4C886
 }

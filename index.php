@@ -23,12 +23,23 @@
 <body>
   <?php  include 'layout/navbar.php'; ?>
 
-
-  <div class="jumbotron">
-    <div class="container">
-
-    </div>
+  <div style="background-color:white;padding-bottom: 50px;padding-top:50px; margin-top: -20px;">
+    <center>
+      <h1 style="font-size:6em;font-family: 'Shadows Into Light Two', cursive;">Tomas<br/></h1>
+    </center>
+    <center>
+      <h1><small style="font-size:0.8em;">Sua tomada que pensa</small></h1>
+    </center>
   </div>
+
+
+
+  <center style="background-color:white;padding-bottom: 50px; ">
+    <!--Trocar por Render-->
+    <img  src="img/energia-189832.jpg" class="img-responsive banner"/>
+  </center>
+
+
 
   <div class="container text-center secao">
     <h1>O poder da tomada reinventado</h1><br/>
@@ -36,17 +47,29 @@
     <p>Descubra o poder de Tomas, uma tomada inteligente por um preço que você pode pagar</p>
   </div>
 
+  <center>
+    <img src="img/minhaconta.gif" class="img-responsive" />
+  </center>
+
   <div class="container-fluid text-center secao">
     <div class="container">
       <h1>Agiliza sua vida</h1><br/>
       <p>Programe o horário de funcionamento de todos os seus equipamentos em sua casa ou negócio</p>
     </div>
   </div>
+  <center>
+    <img src="img/programacao.gif" class="img-responsive"/>
+  </center>
+
 
   <div class="container text-center secao">
     <h1>Economia</h1><br/>
     <p>Tomas te ajuda a saber onde você pode economizar energia em sua casa ou negócio.</p><p> Gráficos mostram o consumo de energia em todas as tomadas inteligentes</p>
   </div>
+
+  <center style="margin-bottom:85px;">
+    <img src="img/graficos.gif" class="img-responsive" />
+  </center>
 
   <div class="container-fluid text-center secao secaoEscura">
     <div class="container">
