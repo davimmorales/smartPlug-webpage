@@ -47,9 +47,8 @@
     <p>Descubra o poder de Tomas, uma tomada inteligente por um preço que você pode pagar</p>
   </div>
   <center>
-    <video autoplay loop width="500" height="300">
-      <source src="img/video.webm" type="video/webm" />
-    </video>
+    <img src="img/minhaconta.gif" classs="img-responsive"/>
+    
 </center>
   <div class="container-fluid text-center secao">
     <div class="container">
@@ -57,6 +56,10 @@
       <p>Programe o horário de funcionamento de todos os seus equipamentos em sua casa ou negócio</p>
     </div>
   </div>
+  <center>
+    <img src="img/programacao.gif" classs="img-responsive"/>
+    
+</center>
 
   <div class="container text-center secao">
     <h1>Economia</h1><br/>
