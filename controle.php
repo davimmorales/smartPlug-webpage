@@ -107,7 +107,7 @@ function estado($tomada, $modo){
 
 
 
-<!-- Modal -->
+<!-- Modal APAGAR TOMADA -->
 <div class="modal fade" id="ModalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -148,7 +148,7 @@ function estado($tomada, $modo){
 </div>
 
 
-<!--Modal -->
+<!--Modal PROGRAMAÇÃO -->
 <div class="modal fade modal" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -157,11 +157,30 @@ function estado($tomada, $modo){
         <center><h2 class="modal-title" id="myModalLabel">Programação<br/><small>Aqui você programa o funcionamento da sua tomada</h2></center>
       </div>
       <div class="modal-body">
-        Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
+
+
+        <center>
+          <h3 class="subreg">Nova programação</h3>
+          <form role="form">
+            <div class="form-group">
+              <label for="sel1">Selecione a tomada</label><br/>
+              <select class="form-control selec" id="sel1">
+                <option class="text-center">1: TV da Sala </option>
+                <option class="text-center">2: TV do Quarto </option>
+                <option class="text-center">3: Aparelho Super Secreto </option>
+              </select><br/>
+              <label for="dia">Selecione o dia</label><br/>
+               <input class="form-control selec" type="date" name="pday" id="dia"/><br/>
+               <label for="hora">Selecione o dia</label><br/>
+               <input class="form-control selec"  type="time" name="usr_time" id="hora"><br/>
+               <button class="btn btn-cinza">Salvar</button>
+            </div>
+          </form>
+        </center>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-cinza">Salvar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
@@ -170,7 +189,7 @@ function estado($tomada, $modo){
 
 
 
-<!--Modal -->
+<!--Modal OPÇÕES -->
 <div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -189,7 +208,7 @@ function estado($tomada, $modo){
   </div>
 </div>
 
-<!-- Modal Add-->
+<!-- Modal ADICIONAR TOMADA-->
 <div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
