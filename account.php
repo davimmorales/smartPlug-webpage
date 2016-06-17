@@ -208,7 +208,7 @@ session_start();
       <p>Bem vindo, <span class="atencaoCreme">
         <?php
         print $_SESSION["nome"]."\n";
-        ?></span>! (<a href="logout.php">Sair</a>)
+        ?></span>! <a class="btn btn-cinza" href="logout.php">Sair</a>
 
       </div>
 
