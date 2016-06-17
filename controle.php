@@ -181,7 +181,7 @@ function estado($tomada, $modo){
                 <input class="form-control selec"  type="time" name="usr_time" id="hora"><br/>
                 <button class="btn btn-cinza">Salvar</button>
               </div>
-              
+
             </center>
             <hr/>
             <center>
@@ -244,24 +244,29 @@ function estado($tomada, $modo){
 
 
 
-<!--Modal OPÇÕES -->
-<div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você altera a exibição de gráficos</h2></center>
-      </div>
-      <div class="modal-body">
-        Aqui virão funções para programar a tomada para ligar automaticamente na hora que você quiser!
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-cinza">Salvar</button>
-      </div>
+  <!--Modal OPÇÕES -->
+  <div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <form role="form">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você altera a exibição de gráficos</h2></center>
+            </div>
+            <div class="modal-body">
+              <center>
+                <h4>Exportar</h4><br/>
+                <button class="btn btn-success disabled"> Excel</button>
+              </center>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-cinza">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
-  </div>
-</div>
 
 <!-- Modal ADICIONAR TOMADA-->
 <div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
