@@ -46,10 +46,11 @@
     <p>Tomas foi criado para trazer inteligência para o antigo conceido de tomadas.</p>
     <p>Descubra o poder de Tomas, uma tomada inteligente por um preço que você pode pagar</p>
   </div>
+
   <center>
-    <img src="img/minhaconta.gif" classs="img-responsive"/>
-    
-</center>
+    <img src="img/minhaconta.gif" class="img-responsive" />
+  </center>
+
   <div class="container-fluid text-center secao">
     <div class="container">
       <h1>Agiliza sua vida</h1><br/>
@@ -57,9 +58,9 @@
     </div>
   </div>
   <center>
-    <img src="img/programacao.gif" classs="img-responsive"/>
-    
-</center>
+    <img src="img/programacao.gif" class="img-responsive"/>
+  </center>
+
 
   <div class="container text-center secao">
     <h1>Economia</h1><br/>
