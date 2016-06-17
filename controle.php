@@ -181,55 +181,55 @@ function estado($tomada, $modo){
                 <input class="form-control selec"  type="time" name="usr_time" id="hora"><br/>
                 <button class="btn btn-cinza">Salvar</button>
               </div>
-
+              
             </center>
             <hr/>
             <center>
               <h3 class="subreg">Programações</h3>
+              <div class="table-responsive">
+                <table class="table programacao text-center">
+                  <thead>
+                    <tr>
+                      <th>Ação</th>
+                      <th>Tomada</th>
+                      <th>Dia</th>
+                      <th>Horário</th>
+                      <th>Cancela</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="label label-success">Ligar</span></td>
+                      <td>1: TV da Sala</td>
+                      <td>26/12/2016</td>
+                      <td>18:00</td>
+                      <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    </tr>
+                    <tr>
+                      <td><span class="label label-danger">Desligar</span></td>
+                      <td>2: TV do Quarto</td>
+                      <td>27/12/2016</td>
+                      <td>00:00</td>
+                      <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    </tr>
+                    <tr>
+                      <td><span class="label label-success">Ligar</span></td>
+                      <td>3: Aparelho Super Secreto</td>
+                      <td>19/09/2016</td>
+                      <td>18:00</td>
+                      <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    </tr>
+                    <tr>
+                      <td><span class="label label-danger">Desligar</span></td>
+                      <td>3: Aparelho Super Secreto</td>
+                      <td>19/09/2016</td>
+                      <td>19:00</td>
+                      <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    </tr>
 
-              <table class="table programacao text-center">
-                <thead>
-                  <tr>
-                    <th>Ação</th>
-                    <th>Tomada</th>
-                    <th>Dia</th>
-                    <th>Horário</th>
-                    <th>Cancela</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="label label-success">Ligar</span></td>
-                    <td>1: TV da Sala</td>
-                    <td>26/12/2016</td>
-                    <td>18:00</td>
-                    <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                  </tr>
-                  <tr>
-                    <td><span class="label label-danger">Desligar</span></td>
-                    <td>2: TV do Quarto</td>
-                    <td>27/12/2016</td>
-                    <td>00:00</td>
-                    <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                  </tr>
-                  <tr>
-                    <td><span class="label label-success">Ligar</span></td>
-                    <td>3: Aparelho Super Secreto</td>
-                    <td>19/09/2016</td>
-                    <td>18:00</td>
-                    <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                  </tr>
-                  <tr>
-                    <td><span class="label label-danger">Desligar</span></td>
-                    <td>3: Aparelho Super Secreto</td>
-                    <td>19/09/2016</td>
-                    <td>19:00</td>
-                    <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                  </tr>
-
-                </tbody>
-              </table>
-
+                  </tbody>
+                </table>
+              </div>
             </center>
 
           </div>
