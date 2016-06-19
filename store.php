@@ -40,7 +40,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <img class="img-responsive" src="img/gambis.jpg" alt="Uma gambiarra" />
+      <br/>
+        <img class="img-responsive ilustracao" src="img/render2.png" alt="Foto da tomada" />
       </div>
       <div class="col-md-6">
         <h2>O que você gostaria de comprar hoje?</h1><br/>

@@ -6,7 +6,7 @@ body{
   padding-bottom: 85px;
 }
 .banner{
-  width:980px;
-  height: 350px;
-
+  width:auto;
+  max-height: 350px;
+  height:auto;
 }
