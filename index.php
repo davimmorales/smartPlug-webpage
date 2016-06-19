@@ -33,11 +33,12 @@
   </div>
 
 
-
-  <center class="container" style="background-color:white;padding-bottom: 50px; ">
-    <!--Trocar por Render-->
-    <img  src="img/render2.png" class="img-responsive banner"/>
-  </center>
+  <div style="background-color:white;padding-bottom: 50px; ">
+    <center class="container" >
+      <!--Trocar por Render-->
+      <img  src="img/render2.png" class="img-responsive banner"/>
+    </center>
+  </div>
 
 
 
