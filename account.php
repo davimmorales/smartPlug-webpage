@@ -208,13 +208,13 @@ chart.draw(data, options);
   <?php
   function cor($estado){
     switch($estado){
-      case "on":
+      case "Ligado":
       print "btn-success";
       break;
-      case "off":
+      case "Desligado":
       print "btn-danger";
       break;
-      case "changed":
+      case "Alterado":
       print "btn-warning";
       break;
       default:
@@ -297,6 +297,7 @@ chart.draw(data, options);
     if(!$checkCode->num_rows)
     $conexao->query("INSERT INTO tomadas(id_user,nome,serie) VALUES('".$newDeviceOwner."','".$newDeviceName."','".$newDeviceCode."')");
   }
+
   ?>
   <!-- SELECT * FROM `tomadas` WHERE `id_user`= "asenhae@123456.com"; -->
   <!-- Control Functions -->
@@ -395,7 +396,7 @@ chart.draw(data, options);
       <div class="row">
         <div class="col-md-5  regioes" >
 
-          <div class="panel panel-default regioes">
+          <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading" style="color:white;">
 
@@ -426,6 +427,12 @@ chart.draw(data, options);
                     </div>
                   </div>
                   <button class="bc btn-cinza"><span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#ModalRemove"> </span></button>
+                  <?php if($_POST[submitRemoveTomada]){
+                    $deleteDeviceID = $_POST['deleteBoy'];
+                    // echo $deleteDeviceID;
+                    $conexao->query("DELETE FROM tomadas where id=$deleteDeviceID");
+                    // $conexao->query("DELETE FROM tomadas where id=$deviceID");
+                  } ?>
                   <!-- Modal APAGAR TOMADA -->
                   <div class="modal fade" id="ModalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
@@ -438,17 +445,18 @@ chart.draw(data, options);
 
                           <center>
 
-                            <form role="form">
+                            <form action="account.php" method="post">
                               <div class="form-group">
-                                <label for="sel1">Selecione a tomada a ser removida</label><br/>
-                                <select class="form-control selec" id="sel1">
+                                <label for="deleteBoy">Selecione a tomada a ser removida</label><br/>
+                                <select class="form-control selec" id="deleteBoy" name="deleteBoy">
                                   <?php
                                   for ($i=0; $i < $counter ; $i++) {                                 ?>
-                                  <option class="text-center"><?php echo $i+1; ?>: <?php echo $devicesArray[$i]['nome']; ?> </option>
+                                  <option class="text-center" value=<?php echo $devicesArray[$i]['id']; ?>><?php echo $i+1; ?>: <?php echo $devicesArray[$i]['nome']; ?> </option>
                                 <?php } ?>
                                 </select>
                               </div>
-                            </form>
+
+
                           </center>
 
                         </div>
@@ -460,8 +468,11 @@ chart.draw(data, options);
                             <p class="text-center"> Você tem certeza que quer removê-la?</p>
                           </div>
                           <br/>
-                          <input type="submit" value="Remover tomada" name="submiRemoveTomada" class="btn btn-danger"/>
+
                           <button type="button" class="btn btn-success" data-dismiss="modal">Não remova!</button>
+                          <input type="submit" value="Remover tomada" name="submitRemoveTomada" class="btn btn-danger"/>
+                          </form>
+
                         </div>
                       </div>
                     </div>
@@ -493,12 +504,12 @@ chart.draw(data, options);
                 for ($i=0; $i < $counter; $i++) {
                   if(!$_POST[check_list][$i]){
                     if($devicesArray[$i]['status'])
-                    $statusValue[$i] = "on";
+                    $statusValue[$i] = "Ligado";
                     else
-                    $statusValue[$i] = "off";
+                    $statusValue[$i] = "Desligado";
                   }
                   else {
-                    $statusValue[$i] = "changed";
+                    $statusValue[$i] = "Alterado";
                   }
 
                   ?>
@@ -526,7 +537,7 @@ chart.draw(data, options);
                         header('Location: account.php');
                         $deviceID = $devicesArray[$j]['id'];
                         $conexao->query("UPDATE tomadas SET status=0 WHERE id=$deviceID");
-                        // $statusValue[$j]= "off";
+                        // $statusValue[$j]= "Desligado";
                       }
                       else if($devicesArray[$j]['status']==0) {
                         $deviceID = $devicesArray[$j]['id'];
