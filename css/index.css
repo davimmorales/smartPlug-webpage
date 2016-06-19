@@ -9,5 +9,5 @@ body{
   width:auto;
   max-height: 350px;
   height:auto;
-  max-width:calc(607px*350px/946px);
+  max-width:auto;
 }
