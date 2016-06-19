@@ -41,7 +41,7 @@
     <div class="row">
       <div class="col-md-6">
       <br/>
-        <img class="img-responsive ilustracao" src="img/render2.png" alt="Foto da tomada" />
+        <img class="img-responsive ilustracao" src="img/render2-min.png" alt="Foto da tomada" />
       </div>
       <div class="col-md-6">
         <h2>O que você gostaria de comprar hoje?</h1><br/>

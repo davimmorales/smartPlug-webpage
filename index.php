@@ -34,10 +34,12 @@
 
 
   <div style="background-color:white;padding-bottom: 50px; ">
-    <center class="container" >
-      <!--Trocar por Render-->
-      <img  src="img/render2.png" class="img-responsive banner"/>
-    </center>
+    <div class="container">
+      <center>
+        <!--Trocar por Render-->
+        <img  src="img/render2-min.png" class="img-responsive banner" alt="Foto da tomada"  />
+      </center>
+    </div>
   </div>
 
 
