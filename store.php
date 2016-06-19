@@ -40,6 +40,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
+      <br/>
         <img class="img-responsive ilustracao" src="img/render2.png" alt="Foto da tomada" />
       </div>
       <div class="col-md-6">
