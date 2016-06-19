@@ -315,6 +315,36 @@ chart.draw(data, options);
     // $conexao->query("DELETE FROM tomadas where id=$deviceID");
   }
 
+  if($_POST[submitProgramaTomada]){
+    $programDeviceID = $_POST['prog'];
+    if($_POST['acao']=="Ligado")
+      $progStatus = 1;
+    else
+      $progStatus = 0;
+    $timestamp = strtotime($_POST['usr_time']);//strtotime($_POST['pday']);
+    // $day = date("d", $_POST['pday']);
+    $day = date("d", $timestamp);
+    $day = intval($day);
+    $month = date("m", $timestamp);
+    $month = intval($month);
+    $year = date("y", $timestamp);
+    $year += 2000;
+    $year = intval($year);
+
+
+    $hour = date("H", $timestamp);
+    $hour = intval($hour);
+    $minute = date("i", $timestamp);
+    $minute = intval($minute);
+
+    $conexao->query("INSERT INTO programacao_horario(id_tomada, dia, mes, ano, hora, minuto, status) VALUES('".$programDeviceID."','".$day."' , '".$month."',
+    '".$year."', '".$hour."', '".$minute."', '".$progStatus."')");
+
+    // $conexao->query("INSERT INTO usuarios(nome,email,senha) VALUES('".$nome."','".$email."','".$senhaSha)");
+    // echo $day.$month.$year." ".$hour.$minute;
+    // echo $programDeviceID.$progStatus;
+  }
+
   ?>
   <!-- SELECT * FROM `tomadas` WHERE `id_user`= "asenhae@123456.com"; -->
   <!-- Control Functions -->
@@ -539,6 +569,100 @@ chart.draw(data, options);
                     </div>
                   </div>
                   <button class="bc btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></button>
+                  <!--Modal PROGRAMAÇÃO -->
+                  <div class="modal fade modal" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <form action="account.php" method="post">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <center><h2 class="modal-title" id="myModalLabel">Programação<br/><small>Aqui você programa o funcionamento da sua tomada</h2></center>
+                            </div>
+                            <div class="modal-body">
+
+
+                              <center>
+                                <h3 class="subreg">Nova programação</h3>
+
+                                <div class="form-group">
+                                  <label for="acao">Selecione a ação</label><br/>
+                                  <select class="form-control selec" id="acao" name="acao">
+                                    <option class="text-center">Ligar</option>
+                                    <option class="text-center">Desligar</option>
+                                  </select><br/>
+
+                                  <label for="prog">Selecione a tomada</label><br/>
+                                  <select class="form-control selec" id="prog" name="prog">
+                                    <?php
+                                    for ($i=0; $i < $counter ; $i++) {                                 ?>
+                                    <option class="text-center" value=<?php echo $devicesArray[$i]['id']; ?>><?php echo $i+1; ?>: <?php echo $devicesArray[$i]['nome']; ?> </option>
+                                  <?php } ?>
+                                  </select><br/>
+                                  <label for="dia">Selecione o dia</label><br/>
+                                  <input class="form-control selec" type="date" name="pday" id="dia" min=<?php echo getdate(); ?>/><br/>
+                                  <label for="hora">Selecione o horário</label><br/>
+                                  <input class="form-control selec"  type="time" name="usr_time" id="hora"><br/>
+                                  <input type="submit" value="Salvar" name="submitProgramaTomada" class="btn btn-cinza"/>
+                                </div>
+                                </form>
+
+                              </center>
+                              <hr/>
+                              <center>
+                                <h3 class="subreg">Programações</h3>
+                                <div class="table-responsive">
+                                  <table class="table programacao text-center">
+                                    <thead>
+                                      <tr>
+                                        <th>Ação</th>
+                                        <th>Tomada</th>
+                                        <th>Dia</th>
+                                        <th>Horário</th>
+                                        <th>Cancela</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td><span class="label label-success">Ligar</span></td>
+                                        <td>1: TV da Sala</td>
+                                        <td>26/12/2016</td>
+                                        <td>18:00</td>
+                                        <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                      </tr>
+                                      <tr>
+                                        <td><span class="label label-danger">Desligar</span></td>
+                                        <td>2: TV do Quarto</td>
+                                        <td>27/12/2016</td>
+                                        <td>00:00</td>
+                                        <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                      </tr>
+                                      <tr>
+                                        <td><span class="label label-success">Ligar</span></td>
+                                        <td>3: Aparelho Super Secreto</td>
+                                        <td>19/09/2016</td>
+                                        <td>18:00</td>
+                                        <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                      </tr>
+                                      <tr>
+                                        <td><span class="label label-danger">Desligar</span></td>
+                                        <td>3: Aparelho Super Secreto</td>
+                                        <td>19/09/2016</td>
+                                        <td>19:00</td>
+                                        <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                      </tr>
+
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </center>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
               </div>
 
@@ -644,98 +768,7 @@ chart.draw(data, options);
     //New stuff that needs enconding
     ?>
 
-    <!--Modal PROGRAMAÇÃO -->
-    <div class="modal fade modal" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <form role="form">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <center><h2 class="modal-title" id="myModalLabel">Programação<br/><small>Aqui você programa o funcionamento da sua tomada</h2></center>
-              </div>
-              <div class="modal-body">
 
-
-                <center>
-                  <h3 class="subreg">Nova programação</h3>
-
-                  <div class="form-group">
-                    <label for="acao">Selecione a ação</label><br/>
-                    <select class="form-control selec" id="acao">
-                      <option class="text-center">Ligar</option>
-                      <option class="text-center">Desligar</option>
-                    </select><br/>
-                    <label for="sel1">Selecione a tomada</label><br/>
-                    <select class="form-control selec" id="sel1">
-                      <option class="text-center">1: TV da Sala </option>
-                      <option class="text-center">2: TV do Quarto </option>
-                      <option class="text-center">3: Aparelho Super Secreto </option>
-                    </select><br/>
-                    <label for="dia">Selecione o dia</label><br/>
-                    <input class="form-control selec" type="date" name="pday" id="dia"/><br/>
-                    <label for="hora">Selecione o horário</label><br/>
-                    <input class="form-control selec"  type="time" name="usr_time" id="hora"><br/>
-                    <button class="btn btn-cinza">Salvar</button>
-                  </div>
-
-                </center>
-                <hr/>
-                <center>
-                  <h3 class="subreg">Programações</h3>
-                  <div class="table-responsive">
-                    <table class="table programacao text-center">
-                      <thead>
-                        <tr>
-                          <th>Ação</th>
-                          <th>Tomada</th>
-                          <th>Dia</th>
-                          <th>Horário</th>
-                          <th>Cancela</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><span class="label label-success">Ligar</span></td>
-                          <td>1: TV da Sala</td>
-                          <td>26/12/2016</td>
-                          <td>18:00</td>
-                          <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                        </tr>
-                        <tr>
-                          <td><span class="label label-danger">Desligar</span></td>
-                          <td>2: TV do Quarto</td>
-                          <td>27/12/2016</td>
-                          <td>00:00</td>
-                          <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                        </tr>
-                        <tr>
-                          <td><span class="label label-success">Ligar</span></td>
-                          <td>3: Aparelho Super Secreto</td>
-                          <td>19/09/2016</td>
-                          <td>18:00</td>
-                          <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                        </tr>
-                        <tr>
-                          <td><span class="label label-danger">Desligar</span></td>
-                          <td>3: Aparelho Super Secreto</td>
-                          <td>19/09/2016</td>
-                          <td>19:00</td>
-                          <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                        </tr>
-
-                      </tbody>
-                    </table>
-                  </div>
-                </center>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
 
 
 
