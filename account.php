@@ -375,6 +375,22 @@ chart.draw(data, options);
       <p>Aqui você acessa suas opções de conta e gerencia suas tomadas</p>
     </center>
 
+    <?php
+    include("conexao.php");
+    $showDelete_modal = false;
+    $counter = 0;
+    $owner = $_SESSION['owner'];
+    $devicesData = $conexao->query("SELECT * FROM tomadas WHERE id_user = '$owner'");
+    while($rDevicesData = $devicesData->fetch_assoc()){
+      $devicesArray[$counter] = array('id'=>$rDevicesData[id],
+      'id_user'=>utf8_encode($rDevicesData[id_user]),
+      'nome' => utf8_encode($rDevicesData[nome]),
+      'serie'=>utf8_encode($rDevicesData[serie]),
+      'status'=>$rDevicesData[status]);
+      $counter++;
+    }
+     ?>
+
     <div class="container">
       <div class="row">
         <div class="col-md-5  regioes" >
@@ -390,7 +406,66 @@ chart.draw(data, options);
                 <div class="col-xs-4 text-center"><b>Seus Dispositivos</b></div>
                 <div class="col-xs-5 text-right">
                   <button class="bc btn-cinza"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#ModalAdicionarTomada"> </span></button>
+                  <!-- Modal Adicionar Tomada -->
+                  <div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Adicionar Novo Dispositivo</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form action="account.php" method="post">
+                            <input type="text" name="nomeTomada" class="form-control" placeholder="nome"><br/>
+                            <input type="text" name="cSerie" class="form-control" placeholder="Código de Série"><br/>
+                            <input type="submit" value="Adicionar Dispositivo" name="submitNovaTomada" class="btn btn-cinza"/>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <button class="bc btn-cinza"><span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#ModalRemove"> </span></button>
+                  <!-- Modal APAGAR TOMADA -->
+                  <div class="modal fade" id="ModalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <center><h2 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Remoção de tomadas!</h2></center>
+                        </div>
+                        <div class="modal-body">
+
+                          <center>
+
+                            <form role="form">
+                              <div class="form-group">
+                                <label for="sel1">Selecione a tomada a ser removida</label><br/>
+                                <select class="form-control selec" id="sel1">
+                                  <?php
+                                  for ($i=0; $i < $counter ; $i++) {                                 ?>
+                                  <option class="text-center"><?php echo $i+1; ?>: <?php echo $devicesArray[$i]['nome']; ?> </option>
+                                <?php } ?>
+                                </select>
+                              </div>
+                            </form>
+                          </center>
+
+                        </div>
+                        <div class="modal-footer">
+                          <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <p class="text-center"><strong>Cuidado! </strong></p>
+                            <p class="text-center">Após a remoção a tomada não funcionará até ser readicionada!</p>
+                            <p class="text-center"> Você tem certeza que quer removê-la?</p>
+                          </div>
+                          <br/>
+                          <input type="submit" value="Remover tomada" name="submiRemoveTomada" class="btn btn-danger"/>
+                          <button type="button" class="btn btn-success" data-dismiss="modal">Não remova!</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <button class="bc btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></button>
                 </div>
               </div>
@@ -415,20 +490,6 @@ chart.draw(data, options);
                   </td>
                 </tr>
                 <?php
-                include("conexao.php");
-                $showDelete_modal = false;
-                $counter = 0;
-                $owner = $_SESSION['owner'];
-                $devicesData = $conexao->query("SELECT * FROM tomadas WHERE id_user = '$owner'");
-                while($rDevicesData = $devicesData->fetch_assoc()){
-                  $devicesArray[$counter] = array('id'=>$rDevicesData[id],
-                  'id_user'=>utf8_encode($rDevicesData[id_user]),
-                  'nome' => utf8_encode($rDevicesData[nome]),
-                  'serie'=>utf8_encode($rDevicesData[serie]),
-                  'status'=>$rDevicesData[status]);
-                  $counter++;
-                }
-
                 for ($i=0; $i < $counter; $i++) {
                   if(!$_POST[check_list][$i]){
                     if($devicesArray[$i]['status'])
@@ -510,48 +571,6 @@ chart.draw(data, options);
     <?php     }
     //New stuff that needs enconding
     ?>
-
-
-    <!-- Modal APAGAR TOMADA -->
-    <div class="modal fade" id="ModalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <center><h2 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Remoção de tomadas!</h2></center>
-          </div>
-          <div class="modal-body">
-
-            <center>
-
-              <form role="form">
-                <div class="form-group">
-                  <label for="sel1">Selecione a tomada a ser removida</label><br/>
-                  <select class="form-control selec" id="sel1">
-                    <option class="text-center">1: TV da Sala </option>
-                    <option class="text-center">2: TV do Quarto </option>
-                    <option class="text-center">3: Aparelho Super Secreto </option>
-                  </select>
-                </div>
-              </form>
-            </center>
-
-          </div>
-          <div class="modal-footer">
-            <div class="alert alert-danger alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <p class="text-center"><strong>Cuidado! </strong></p>
-              <p class="text-center">Após a remoção a tomada não funcionará até ser readicionada!</p>
-              <p class="text-center"> Você tem certeza que quer removê-la?</p>
-            </div>
-            <br/>
-            <button type="button" class="btn btn-danger">Remover tomada</button>
-            <button type="button" class="btn btn-success" data-dismiss="modal">Não remova!</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <!--Modal PROGRAMAÇÃO -->
     <div class="modal fade modal" id="ModalT0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -647,7 +666,7 @@ chart.draw(data, options);
       </div>
 
 
-      
+
 
       <!--Modal OPÇÕES -->
       <div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -696,39 +715,7 @@ chart.draw(data, options);
 
 
 
-        <!-- Modal ADICIONAR TOMADA-->
-        <div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Adicionar Novo Dispositivo</h4>
-              </div>
-              <form action="autenticacao.php" method:"post">
-                <div class="modal-body">
 
-                  <div class="form-group">
-
-
-                    <input type="text" name="nomeTomada" class="form-control" placeholder="nome"><br/>
-                    <input type="text" name="cSerie" class="form-control" placeholder="Código de Série"><br/>
-                    <label for="sel1">Selecione a tensão em que a tomada trabalha</label><br/>
-                    <select class="form-control" id="Volts">
-                      <option class="text-center">110V</option>
-                      <option class="text-center">220V</option>
-                    </select><br/>
-
-                  </div>
-
-                </div>
-                <div class="modal-footer">
-                  <input type="submit" value="Adicionar Dispositivo" name="submitNovaTomada" class="btn btn-cinza"/>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
 
 
 
