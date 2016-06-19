@@ -298,6 +298,23 @@ chart.draw(data, options);
     $conexao->query("INSERT INTO tomadas(id_user,nome,serie) VALUES('".$newDeviceOwner."','".$newDeviceName."','".$newDeviceCode."')");
   }
 
+  // include("conexao.php");
+  if($_POST[submitAlteraTomada]){
+    $changeDeviceID = $_POST['changeBoy'];
+    if($_POST['Volts1']=="110V"){
+      $newTension = 110;
+    }
+    else {
+      $newTension = 220;
+    }
+    $newName = $_POST['nameDevice'];
+
+    // echo $changeDeviceID.$newTension.$newName;
+    $conexao->query("UPDATE tomadas SET nome='$newName', tensao='$newTension' WHERE id=$changeDeviceID");
+
+    // $conexao->query("DELETE FROM tomadas where id=$deviceID");
+  }
+
   ?>
   <!-- SELECT * FROM `tomadas` WHERE `id_user`= "asenhae@123456.com"; -->
   <!-- Control Functions -->
@@ -403,6 +420,50 @@ chart.draw(data, options);
               <div class="row">
                 <div class="col-xs-3">
                   <button class="bc btn-cinza"><span class="glyphicon glyphicon-option-vertical" data-toggle="modal" data-target="#ModalMenu"> </span></button>
+                  <!--Modal OPÇÕES -->
+                  <div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <form  action="account.php" method="post">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você encontra opções para gráficos<br/> e altera suas tomadas</h2></center>
+                            </div>
+                            <div class="modal-body">
+                              <center>
+                                <h4>Exportar</h4><br/>
+                                <button class="btn btn-success disabled"> Excel</button>
+                              </center>
+                              <!-- <hr/> -->
+                              <center>
+                                <h4>Alterar tomada</h4><br/>
+
+                                <label for="changeBoy">Selecione a tomada</label><br/>
+                                <select class="form-control" id="changeBoy" name="changeBoy">
+                                  <?php
+                                  for ($i=0; $i < $counter ; $i++) {                                 ?>
+                                  <option class="text-center" value=<?php echo $devicesArray[$i]['id']; ?>><?php echo $i+1; ?>: <?php echo $devicesArray[$i]['nome']; ?> </option>
+                                <?php } ?>
+                                </select><br/>
+                                <label for="Volts1">Selecione a tensão em que a tomada trabalha</label><br/>
+                                <select class="form-control" id="Volts1" name="Volts1">
+                                  <option class="text-center">110V</option>
+                                  <option class="text-center">220V</option>
+                                </select><br/>
+                                <input type="text" name="nameDevice" class="form-control" placeholder="Alterar nome"><br/>
+                                <!-- <input type="text" name="cSerie" class="form-control" placeholder="Alterar código de Série"><br/> -->
+                                <input type="submit" class="btn btn-cinza" name="submitAlteraTomada">Salvar</input>
+
+                              </center>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
                 </div>
                 <div class="col-xs-4 text-center"><b>Seus Dispositivos</b></div>
                 <div class="col-xs-5 text-right">
@@ -675,59 +736,6 @@ chart.draw(data, options);
           </div>
         </form>
       </div>
-
-
-
-
-      <!--Modal OPÇÕES -->
-      <div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <form role="form">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você encontra opções para gráficos<br/> e altera suas tomadas</h2></center>
-                </div>
-                <div class="modal-body">
-                  <center>
-                    <h4>Exportar</h4><br/>
-                    <button class="btn btn-success disabled"> Excel</button>
-                  </center>
-                  <hr/>
-                  <center>
-                    <h4>Alterar tomada</h4><br/>
-
-                    <label for="sel2">Selecione a tomada</label><br/>
-                    <select class="form-control" id="sel2">
-                      <option class="text-center">1: TV da Sala </option>
-                      <option class="text-center">2: TV do Quarto </option>
-                      <option class="text-center">3: Aparelho Super Secreto </option>
-                    </select><br/>
-                    <label for="Volts1">Selecione a tensão em que a tomada trabalha</label><br/>
-                    <select class="form-control" id="Volts1">
-                      <option class="text-center">110V</option>
-                      <option class="text-center">220V</option>
-                    </select><br/>
-                    <input type="text" name="nomeTomada" class="form-control" placeholder="Alterar nome"><br/>
-                    <input type="text" name="cSerie" class="form-control" placeholder="Alterar código de Série"><br/>
-                    <button type="submit" class="btn btn-cinza">Salvar</button>
-
-                  </center>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-
-
-
-
-
-
 
 
 
