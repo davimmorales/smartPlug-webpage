@@ -33,14 +33,16 @@ function estado($tomada, $modo){
           <div class="panel-heading" style="color:white;">
 
             <div class="row">
-              <div class="col-xs-4">
-                <a class=" btn-cinza"><span class="glyphicon glyphicon-option-vertical" data-toggle="modal" data-target="#ModalMenu"> </span></a>
+
+              <div class="col-xs-3">
+                <button class="bc btn-cinza"><span class="glyphicon glyphicon-option-vertical" data-toggle="modal" data-target="#ModalMenu"> </span></button>
               </div>
               <div class="col-xs-4 text-center"><b>Seus Dispositivos</b></div>
-              <div class="col-xs-4 text-right">
-                <a class=" btn-cinza"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#ModalAdicionarTomada"> </span></a>
-                <a class=" btn-cinza"><span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#ModalRemove"> </span></a>
-                <a class=" btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></a>
+              <div class="col-xs-5 text-right">
+                <button class="bc btn-cinza"><span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#ModalAdicionarTomada"> </span></button>
+                <button class="bc btn-cinza"><span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#ModalRemove"> </span></button>
+                <button class="bc btn-cinza"><span class="glyphicon glyphicon-cog"data-toggle="modal" data-target="#ModalT0"></span></button>
+
               </div>
             </div>
 
@@ -244,6 +246,7 @@ function estado($tomada, $modo){
 
 
 
+
   <!--Modal OPÇÕES -->
   <div class="modal fade modal" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <form role="form">
@@ -251,53 +254,74 @@ function estado($tomada, $modo){
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você altera a exibição de gráficos</h2></center>
+            <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você encontra opções para gráficos<br/> e altera suas tomadas</h2></center>
             </div>
             <div class="modal-body">
               <center>
                 <h4>Exportar</h4><br/>
                 <button class="btn btn-success disabled"> Excel</button>
               </center>
+              <hr/>
+              <center>
+                <h4>Alterar tomada</h4><br/>
+
+                <label for="sel2">Selecione a tomada</label><br/>
+                <select class="form-control" id="sel2">
+                  <option class="text-center">1: TV da Sala </option>
+                  <option class="text-center">2: TV do Quarto </option>
+                  <option class="text-center">3: Aparelho Super Secreto </option>
+                </select><br/>
+                <label for="Volts1">Selecione a tensão em que a tomada trabalha</label><br/>
+                <select class="form-control" id="Volts1">
+                  <option class="text-center">110V</option>
+                  <option class="text-center">220V</option>
+                </select><br/>
+                <input type="text" name="nomeTomada" class="form-control" placeholder="Alterar nome"><br/>
+                <input type="text" name="cSerie" class="form-control" placeholder="Alterar código de Série"><br/>
+                <button type="submit" class="btn btn-cinza">Salvar</button>
+
+              </center>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-cinza">Salvar</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+
             </div>
           </div>
         </div>
       </form>
     </div>
 
-<!-- Modal ADICIONAR TOMADA-->
-<div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Adicionar Novo Dispositivo</h4>
-      </div>
-      <form action="autenticacao.php" method:"post">
-        <div class="modal-body">
 
-          <div class="form-group">
-
-
-            <input type="text" name="nomeTomada" class="form-control" placeholder="nome"><br/>
-            <input type="text" name="cSerie" class="form-control" placeholder="Código de Série"><br/>
-            <label for="sel1">Selecione a tensão em que a tomada trabalha</label><br/>
-            <select class="form-control" id="Volts">
-              <option class="text-center">110V</option>
-              <option class="text-center">220V</option>
-            </select><br/>
-
+    <!-- Modal ADICIONAR TOMADA-->
+    <div class="modal fade" id="ModalAdicionarTomada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Adicionar Novo Dispositivo</h4>
           </div>
+          <form action="autenticacao.php" method:"post">
+            <div class="modal-body">
 
+              <div class="form-group">
+
+
+                <input type="text" name="nomeTomada" class="form-control" placeholder="nome"><br/>
+                <input type="text" name="cSerie" class="form-control" placeholder="Código de Série"><br/>
+                <label for="Volts">Selecione a tensão em que a tomada trabalha</label><br/>
+                <select class="form-control" id="Volts">
+                  <option class="text-center">110V</option>
+                  <option class="text-center">220V</option>
+                </select><br/>
+
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <input type="submit" value="Adicionar Dispositivo" name="submitNovaTomada" class="btn btn-cinza"/>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+          </form>
         </div>
-        <div class="modal-footer">
-          <input type="submit" value="Adicionar Dispositivo" name="submitNovaTomada" class="btn btn-cinza"/>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        </div>
-      </form>
+      </div>
     </div>
-  </div>
-</div>
