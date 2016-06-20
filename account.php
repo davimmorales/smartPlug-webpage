@@ -433,7 +433,8 @@ chart.draw(data, options);
       'id_user'=>utf8_encode($rDevicesData[id_user]),
       'nome' => utf8_encode($rDevicesData[nome]),
       'serie'=>utf8_encode($rDevicesData[serie]),
-      'status'=>$rDevicesData[status]);
+      'status'=>$rDevicesData[status],
+      'tensao'=>$rDevicesData[tensao]);
       $counter++;
     }
      ?>
@@ -607,7 +608,7 @@ chart.draw(data, options);
 
                               </center>
                               <hr/>
-                              <center>
+                              <!-- <center>
                                 <h3 class="subreg">Programações</h3>
                                 <div class="table-responsive">
                                   <table class="table programacao text-center">
@@ -631,7 +632,7 @@ chart.draw(data, options);
                                     </tbody>
                                   </table>
                                 </div>
-                              </center>
+                              </center> -->
 
                             </div>
                             <div class="modal-footer">
@@ -661,6 +662,8 @@ chart.draw(data, options);
                   </td>
                   <td>Estado
                   </td>
+                  <td>Tensão
+                  </td>
                 </tr>
                 <?php
                 for ($i=0; $i < $counter; $i++) {
@@ -685,6 +688,8 @@ chart.draw(data, options);
                         <input type="submit" name="check_list[<?php echo $i; ?>]" class="btn <?php  cor($statusValue[$i]); ?>"  value=<?php echo $statusValue[$i] ?> >
                       </form>
                     </td>
+                    <td><?php echo $devicesArray[$i]['tensao']; ?>V</td>
+
 
 
                   </tr>
