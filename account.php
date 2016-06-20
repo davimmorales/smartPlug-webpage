@@ -321,6 +321,7 @@ chart.draw(data, options);
       $progStatus = 1;
     else
       $progStatus = 0;
+
     $timestamp = strtotime($_POST['usr_time']);//strtotime($_POST['pday']);
     // $day = date("d", $_POST['pday']);
     $day = date("d", $timestamp);
@@ -331,18 +332,16 @@ chart.draw(data, options);
     $year += 2000;
     $year = intval($year);
 
-
     $hour = date("H", $timestamp);
     $hour = intval($hour);
     $minute = date("i", $timestamp);
     $minute = intval($minute);
-
-    $conexao->query("INSERT INTO programacao_horario(id_tomada, dia, mes, ano, hora, minuto, status) VALUES('".$programDeviceID."','".$day."' , '".$month."',
-    '".$year."', '".$hour."', '".$minute."', '".$progStatus."')");
+    $conexao->query("INSERT INTO programacao_horario(id_tomada, dia, mes, ano, hora, minuto, status) VALUES('".$programDeviceID."','".$day."' ,
+    '".$month."','".$year."', '".$hour."', '".$minute."', '".$progStatus."')");
 
     // $conexao->query("INSERT INTO usuarios(nome,email,senha) VALUES('".$nome."','".$email."','".$senhaSha)");
     // echo $day.$month.$year." ".$hour.$minute;
-    // echo $programDeviceID.$progStatus;
+// (id_tomada, dia, mes, ano, hora, minuto, status)
   }
 
   ?>
