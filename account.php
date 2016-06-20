@@ -628,28 +628,6 @@ chart.draw(data, options);
                                         <td>18:00</td>
                                         <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
                                       </tr>
-                                      <tr>
-                                        <td><span class="label label-danger">Desligar</span></td>
-                                        <td>2: TV do Quarto</td>
-                                        <td>27/12/2016</td>
-                                        <td>00:00</td>
-                                        <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                                      </tr>
-                                      <tr>
-                                        <td><span class="label label-success">Ligar</span></td>
-                                        <td>3: Aparelho Super Secreto</td>
-                                        <td>19/09/2016</td>
-                                        <td>18:00</td>
-                                        <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                                      </tr>
-                                      <tr>
-                                        <td><span class="label label-danger">Desligar</span></td>
-                                        <td>3: Aparelho Super Secreto</td>
-                                        <td>19/09/2016</td>
-                                        <td>19:00</td>
-                                        <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
-                                      </tr>
-
                                     </tbody>
                                   </table>
                                 </div>
