@@ -460,6 +460,25 @@ chart.draw(data, options);
       $scheduleArray[$i] = $scheduleArrayItem;
     }
 
+    for ($i=0; $i < $counter; $i++) {
+      $mCounter = 0;
+      $mFetchID = $devicesArray[$i]['id'];
+      $monitorDevices = $conexao->query("SELECT * FROM tomadas_consumo WHERE id_tomada = $mFetchID");
+      while($rMonitorDevices = $monitorDevices->fetch_assoc()){
+        $monitorDevicesItem[$mCounter] = array('id'=>$rMonitorDevices[id],
+        'id_tomada'=>$rMonitorDevices[id_tomada],
+        'dia' => $rMonitorDevices[dia],
+        'mes'=> $rMonitorDevices[mes],
+        'ano'=>$rMonitorDevices[ano],
+        'hora'=>$rMonitorDevices[hora],
+        'minuto'=>$rMonitorDevices[minuto],
+        'consumo'=>$rMonitorDevices[consumo]);
+        $mCounter++;
+      }
+      $mTotalCounter[$i] = $mCounter;
+      $monitorDevicesArray[$i] = $monitorDevicesItem;
+    }
+
      ?>
 
     <div class="container">
@@ -748,7 +767,6 @@ chart.draw(data, options);
 
                   <?php }
 
-                  //This code below might need to change
                   for ($j=0; $j < $counter; $j++) {
                     if($_POST[check_list][$j]){
                       if($devicesArray[$j]['status']==1){
@@ -779,6 +797,42 @@ chart.draw(data, options);
                   ?>
                 </table>
               </div>
+            </div>
+            <h3 class="subreg"><font color=black>Monitoramento</font></h3>
+            <div class="table-responsive">
+              <table class="table programacao text-center">
+                <thead>
+                  <tr style="color:black">
+                    <th>Tomada</th>
+                    <th>Dia</th>
+                    <th>Horário</th>
+                    <th>Consumo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php
+
+                $w = 1;
+                for ($i=0; $i < $counter; $i++) {
+                  for ($j=0; $j < $mTotalCounter[$i]; $j++) { ?>
+                  <tr style="color:black">
+                    <!-- <td><span class="label label-success">Ligar</span></td> -->
+
+                    <td><?php echo $w.' '.$devicesArray[$i]['nome']; ?></td>
+                    <td><?php echo $monitorDevicesArray[$i][$j]['dia'].'/'. $monitorDevicesArray[$i][$j]['mes'].'/'.
+                    $monitorDevicesArray[$i][$j]['ano'];  ?>
+                    <td><?php echo $monitorDevicesArray[$i][$j]['hora'].'h'.
+                    $monitorDevicesArray[$i][$j]['minuto']."'";?></td>
+                    <td><?php
+                    echo $monitorDevicesArray[$i][$j]['consumo'];
+                    ?></td>
+                  </tr>
+                  <?php } $w++;
+                  }
+
+                   ?>
+                </tbody>
+              </table>
             </div>
 
           </div>
