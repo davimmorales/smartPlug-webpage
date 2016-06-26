@@ -309,8 +309,11 @@ chart.draw(data, options);
     }
     $newName = $_POST['nameDevice'];
 
+    if($newName)
     // echo $changeDeviceID.$newTension.$newName;
-    $conexao->query("UPDATE tomadas SET nome='$newName', tensao='$newTension' WHERE id=$changeDeviceID");
+      $conexao->query("UPDATE tomadas SET nome='$newName', tensao='$newTension' WHERE id=$changeDeviceID");
+    else
+      $conexao->query("UPDATE tomadas SET tensao='$newTension' WHERE id=$changeDeviceID");
 
     // $conexao->query("DELETE FROM tomadas where id=$deviceID");
   }
