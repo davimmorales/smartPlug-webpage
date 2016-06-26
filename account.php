@@ -480,7 +480,7 @@ chart.draw(data, options);
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <center><h2 class="modal-title" id="myModalLabel">Opções<br/><small>Aqui você encontra opções para gráficos<br/> e altera suas tomadas</h2></center>
+                            <center><h2 class="modal-title" id="myModalLabel" ><font color=black>Opções</font><br/><small>Aqui você encontra opções para gráficos<br/> e altera suas tomadas</h2></center>
                             </div>
                             <div class="modal-body">
                               <center>
@@ -527,7 +527,7 @@ chart.draw(data, options);
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Adicionar Novo Dispositivo</h4>
+                          <h4 class="modal-title" id="myModalLabel"><font color=black>Adicionar Novo Dispositivo</font></h4>
                         </div>
                         <div class="modal-body">
                           <form action="account.php" method="post">
@@ -553,7 +553,7 @@ chart.draw(data, options);
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <center><h2 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Remoção de tomadas!</h2></center>
+                          <center><h2 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><font color=black>Remoção de tomadas!</font></h2></center>
                         </div>
                         <div class="modal-body">
 
@@ -577,9 +577,9 @@ chart.draw(data, options);
                         <div class="modal-footer">
                           <div class="alert alert-danger alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <p class="text-center"><strong>Cuidado! </strong></p>
-                            <p class="text-center">Após a remoção a tomada não funcionará até ser readicionada!</p>
-                            <p class="text-center"> Você tem certeza que quer removê-la?</p>
+                            <p class="text-center"><strong><font color=red>Cuidado! </font></strong></p>
+                            <p class="text-center"><font color=red>Após a remoção a tomada não funcionará até ser readicionada!</font></p>
+                            <p class="text-center"> <font color=red>Você tem certeza que quer removê-la?</font></p>
                           </div>
                           <br/>
 
@@ -599,31 +599,31 @@ chart.draw(data, options);
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <center><h2 class="modal-title" id="myModalLabel">Programação<br/><small>Aqui você programa o funcionamento da sua tomada</h2></center>
+                            <center><h2 class="modal-title" id="myModalLabel"><font color=black>Programação</font><br/><small>Aqui você programa o funcionamento da sua tomada</h2></center>
                             </div>
                             <div class="modal-body">
 
 
                               <center>
-                                <h3 class="subreg">Nova programação</h3>
+                                <h3 class="subreg"><font color=black>Nova programação</font></h3>
 
                                 <div class="form-group">
-                                  <label for="acao">Selecione a ação</label><br/>
+                                  <label for="acao"><font color=black>Selecione a ação</font></label><br/>
                                   <select class="form-control selec" id="acao" name="acao">
                                     <option class="text-center">Ligar</option>
                                     <option class="text-center">Desligar</option>
                                   </select><br/>
 
-                                  <label for="prog">Selecione a tomada</label><br/>
+                                  <label for="prog"><font color=black>Selecione a tomada</font></label><br/>
                                   <select class="form-control selec" id="prog" name="prog">
                                     <?php
                                     for ($i=0; $i < $counter ; $i++) {                                 ?>
                                     <option class="text-center" value=<?php echo $devicesArray[$i]['id']; ?>><?php echo $i+1; ?>: <?php echo $devicesArray[$i]['nome']; ?> </option>
                                   <?php } ?>
                                   </select><br/>
-                                  <label for="dia">Selecione o dia</label><br/>
+                                  <label for="dia"><font color=black>Selecione o dia</font></label><br/>
                                   <input class="form-control selec" type="date" name="pday" id="dia" min=<?php echo getdate(); ?>/><br/>
-                                  <label for="hora">Selecione o horário</label><br/>
+                                  <label for="hora"><font color=black>Selecione o horário</font></label><br/>
                                   <input class="form-control selec"  type="time" name="usr_time" id="hora"><br/>
                                   <input type="submit" value="Salvar" name="submitProgramaTomada" class="btn btn-cinza"/>
                                 </div>
@@ -632,11 +632,11 @@ chart.draw(data, options);
                               </center>
                               <hr/>
                               <center>
-                                <h3 class="subreg">Programações</h3>
+                                <h3 class="subreg"><font color=black>Programações</font></h3>
                                 <div class="table-responsive">
                                   <table class="table programacao text-center">
                                     <thead>
-                                      <tr>
+                                      <tr style="color:black">
                                         <th>Ação</th>
                                         <th>Tomada</th>
                                         <th>Dia</th>
@@ -657,7 +657,7 @@ chart.draw(data, options);
                                     $w = 1;
                                     for ($i=0; $i < $counter; $i++) {
                                       for ($j=0; $j < $totalSCounter[$i]; $j++) { ?>
-                                      <tr>
+                                      <tr style="color:black">
                                         <!-- <td><span class="label label-success">Ligar</span></td> -->
                                         <td><?php
                                         if($scheduleArray[$i][$j]['dia'])
