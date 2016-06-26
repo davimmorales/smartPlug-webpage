@@ -646,6 +646,14 @@ chart.draw(data, options);
                                     </thead>
                                     <tbody>
                                     <?php
+                                    for ($g=0; $g < $counter; $g++) {
+                                      for ($h=0; $h < $totalSCounter[$g]; $h++) {
+                                        $removeSchID = $scheduleArray[$g][$h]['id'];
+                                        if(isset($_POST[removeSch][$g][$h])){
+                                          $conexao->query("DELETE FROM programacao_horario where id=$removeSchID");
+                                        }
+                                      }
+                                    }
                                     $w = 1;
                                     for ($i=0; $i < $counter; $i++) {
                                       for ($j=0; $j < $totalSCounter[$i]; $j++) { ?>
@@ -662,10 +670,16 @@ chart.draw(data, options);
                                         $scheduleArray[$i][$j]['ano'];  ?>
                                         <td><?php echo $scheduleArray[$i][$j]['hora'].'h'.
                                         $scheduleArray[$i][$j]['minuto']."'";?></td>
-                                        <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                        <td>
+                                        <form action='account.php' method='post'>
+                                          <button type="submit" name="removeSch[<?php echo $i; ?>][<?php echo $j; ?>]"class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+                                        </td>
+                                        </form>
                                       </tr>
                                       <?php } $w++;
-                                      } ?>
+                                      }
+
+                                       ?>
                                     </tbody>
                                   </table>
                                 </div>
@@ -706,9 +720,9 @@ chart.draw(data, options);
                 for ($i=0; $i < $counter; $i++) {
                   if(!$_POST[check_list][$i]){
                     if($devicesArray[$i]['status'])
-                    $statusValue[$i] = "Ligado";
+                      $statusValue[$i] = "Ligado";
                     else
-                    $statusValue[$i] = "Desligado";
+                      $statusValue[$i] = "Desligado";
                   }
                   else {
                     $statusValue[$i] = "Alterado";
