@@ -484,7 +484,7 @@ chart.draw(data, options);
                             </div>
                             <div class="modal-body">
                               <center>
-                                <h4>Exportar</h4><br/>
+                                <h4><font color=black>Exportar</font></h4><br/>
                                 <button class="btn btn-success disabled"> Excel</button>
                               </center>
                               <!-- <hr/> -->
