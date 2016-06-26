@@ -440,6 +440,26 @@ chart.draw(data, options);
       'tensao'=>$rDevicesData[tensao]);
       $counter++;
     }
+
+    for ($i=0; $i < $counter; $i++) {
+      $sCounter = 0;
+      $fetchID = $devicesArray[$i]['id'];
+      $deviceSchedule = $conexao->query("SELECT * FROM programacao_horario WHERE id_tomada = $fetchID");
+      while($rDeviceSchedule = $deviceSchedule->fetch_assoc()){
+        $scheduleArrayItem[$sCounter] = array('id'=>$rDeviceSchedule[id],
+        'id_tomada'=>$rDeviceSchedule[id_tomada],
+        'dia' => $rDeviceSchedule[dia],
+        'mes'=> $rDeviceSchedule[mes],
+        'ano'=>$rDeviceSchedule[ano],
+        'hora'=>$rDeviceSchedule[hora],
+        'minuto'=>$rDeviceSchedule[minuto],
+        'status'=>$rDeviceSchedule[status]);
+        $sCounter++;
+      }
+      $totalSCounter[$i] = $sCounter;
+      $scheduleArray[$i] = $scheduleArrayItem;
+    }
+
      ?>
 
     <div class="container">
@@ -611,7 +631,7 @@ chart.draw(data, options);
 
                               </center>
                               <hr/>
-                              <!-- <center>
+                              <center>
                                 <h3 class="subreg">Programações</h3>
                                 <div class="table-responsive">
                                   <table class="table programacao text-center">
@@ -625,17 +645,31 @@ chart.draw(data, options);
                                       </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                    $w = 1;
+                                    for ($i=0; $i < $counter; $i++) {
+                                      for ($j=0; $j < $totalSCounter[$i]; $j++) { ?>
                                       <tr>
-                                        <td><span class="label label-success">Ligar</span></td>
-                                        <td>1: TV da Sala</td>
-                                        <td>26/12/2016</td>
-                                        <td>18:00</td>
+                                        <!-- <td><span class="label label-success">Ligar</span></td> -->
+                                        <td><?php
+                                        if($scheduleArray[$i][$j]['dia'])
+                                          echo "Ligar";
+                                        else
+                                          echo "Desligar";
+                                        ?></td>
+                                        <td><?php echo $w.' '.$devicesArray[$i]['nome']; ?></td>
+                                        <td><?php echo $scheduleArray[$i][$j]['dia'].'/'. $scheduleArray[$i][$j]['mes'].'/'.
+                                        $scheduleArray[$i][$j]['ano'];  ?>
+                                        <td><?php echo $scheduleArray[$i][$j]['hora'].'h'.
+                                        $scheduleArray[$i][$j]['minuto']."'";?></td>
                                         <td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
                                       </tr>
+                                      <?php } $w++;
+                                      } ?>
                                     </tbody>
                                   </table>
                                 </div>
-                              </center> -->
+                              </center>
 
                             </div>
                             <div class="modal-footer">
