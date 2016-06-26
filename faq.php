@@ -29,10 +29,20 @@
   <div class="container">
     <div class=" row">
       <div class="col-md-6">
-        <h3>Até quantas tomadas se conectam em série?</h3>
-        <h3>Qual o alcance da base de controle?</h3>
-        <h3>Quando sairá half life 3?</h3>
-        <h3>O quanto eu posso economizar com o Tomas em um ano?</h3>
+        <h3>Ao resetar minha tomada, o que acontece?</h3>
+          <h4>Ao resetar o Tomas, você perderá todas as configurações de rede nele salvas e
+perderá também os comandos de controle da programação de rotinas de horários
+configurados na tomada.</h4>
+        <h3>Como faço para resetar minha tomada?</h3>
+        <h4>Para resetar, pressione o botão Reset de sua tomada por alguns segundos até que
+          os ​LEDs se apaguem. Em seguida, solte o botão ​Reset e siga os passos do ​
+          Guia Rápido, presente nesse mesmo ​Manual de Instalação​, para configurá-la
+          novamente.</h4>
+        <h3>Como conectar o Tomas na minha rede?</h3>
+        <h4>Para conectar o Tomas em sua rede, basta ligá-lo na fonte de energia elétrica,
+fazer login em sua conta através do aplicativo ou do site e conectar-se à rede
+criada por ele. Então, abra a tela/página de configuração, selecione a sua rede
+wireless doméstica, digite a senha da mesma e clique em conectar.</h4>
       </div>
     </div>
   </div>
